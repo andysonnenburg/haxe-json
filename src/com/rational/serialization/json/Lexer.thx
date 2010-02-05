@@ -2,30 +2,27 @@ package com.rational.serialization.json;
 
 import com.rational.utils.CharCodes;
 import com.rational.utils.Tools;
+import com.rational.utils.Stream;
+
+using StringTools;
 
 private typedef CC = CharCodes;
 private typedef S = LexerStates;
-private typedef State = Int;
 private typedef T = Tools;
 
 class Lexer {
-	private var stream:Iterator<Int>;
-	private var code:Int;
+	private var stream:Stream<Int>;
 	
-	public function new(stream:Iterator<Int>) {
+	public function new(stream:Stream<Null<Int>>) {
 		this.stream = stream;
 	}
 	
-	private inline function thisCode():Int {
-		return code;
-	}
-	
 	private inline function nextCode():Int {
-		return code = stream.next();
+		return stream.pop();
 	}
 	
 	private inline function unexpected():Void {
-		throw new LexerError("Unexpected " + String.fromCharCode(thisCode()));
+		throw new LexerError("Unexpected \"" + String.fromCharCode(stream.peek()) + "\"");
 	}
 	
 	private inline function internalError():Void {
@@ -33,9 +30,10 @@ class Lexer {
 	}
 	
 	public function next():Token {
-		var state:State = States.START;
+		var state:Int = S.START;
 		var buf:StringBuf = null;
 		var hexBuf:StringBuf = null;
+		var token:Token;
 		skipWhitespace();
 		while (true) {
 			switch (state) {
@@ -53,7 +51,28 @@ class Lexer {
 						case CC.QUOTATION_MARK:
 							buf = new StringBuf();
 							state = S.QUOTATION_MARK;
-						$$cases(function(
+						case CC.MINUS:
+							buf = new StringBuf();
+							buf.addChar(CC.MINUS);
+							state = S.MINUS;
+						case CC.ZERO:
+							buf = new StringBuf();
+							buf.addChar(CC.ZERO);
+							state = S.LEADING_ZERO;
+						$$cases(
+							CC.ONE,
+							CC.TWO,
+							CC.THREE,
+							CC.FOUR,
+							CC.FIVE,
+							CC.SIX,
+							CC.SEVEN,
+							CC.EIGHT,
+							CC.NINE,
+								buf = new StringBuf();
+								buf.addChar(::matched::);
+								state = S.INTEGRAL;
+						)
 						default: unexpected();
 					}
 				case S.t:
@@ -107,10 +126,11 @@ class Lexer {
 						default: unexpected();
 					}
 				case S.QUOTATION_MARK:
-					switch (nextCode()) {
+					var code = stream.pop();
+					switch (code) {
 						case CC.REVERSE_SOLIDUS: state = S.REVERSE_SOLIDUS;
-						case CC.QUOTATION_MARK: return Token.STRING(buf.toString());
-						default: buf.addChar(thisCode());
+						case CC.QUOTATION_MARK:	state = S.STRING;
+						default: buf.addChar(code);
 					}
 				case S.REVERSE_SOLIDUS:
 					switch (nextCode()) {
@@ -146,7 +166,6 @@ class Lexer {
 				case S.UNICODE_ESCAPE:
 					hexDigit(hexBuf);
 					state = S.HEX_DIGIT1;
-				default: unexpected();
 				case S.HEX_DIGIT1:
 					hexDigit(hexBuf);
 					state = S.HEX_DIGIT2;
@@ -157,14 +176,59 @@ class Lexer {
 					hexDigit(hexBuf);
 					buf.addChar(T.parseHex(hexBuf.toString()));
 					state = S.QUOTATION_MARK;
+				case S.MINUS:
+					switch(nextCode()) {
+						case CC.ZERO:
+							buf.addChar(CC.ZERO);
+							state = S.LEADING_ZERO;
+						$$cases(
+							CC.ONE,
+							CC.TWO,
+							CC.THREE,
+							CC.FOUR,
+							CC.FIVE,
+							CC.SIX,
+							CC.SEVEN,
+							CC.EIGHT,
+							CC.NINE,
+								buf.addChar(::matched::);
+								state = S.INTEGRAL;
+						)
+					}
+				case S.LEADING_ZERO: state = fractionalOrExponential(buf);
+				case S.INTEGRAL:
+					if (!digit(buf)) {
+						state = fractionalOrExponential(buf);
+					}
+				case S.LEADING_FRACTIONAL:
+					if (!digit(buf)) {
+						unexpected();
+					}
+					state = S.FRACTIONAL;
+				case S.FRACTIONAL:
+					if (!digit(buf)) {
+						state = exponential(buf);							
+					}
+				case S.LEADING_EXPONENTIAL:
+					if (!digit(buf)) {
+						unexpected();
+					}
+					state = S.EXPONENTIAL;
+				case S.EXPONENTIAL:
+					if (!digit(buf)) {
+						state = S.NUMBER;
+					}
+				case S.STRING: return Token.STRING(buf.toString());
+				case S.NUMBER: return Token.NUMBER(Std.parseFloat(buf.toString()));
+				default: internalError();
 			}
 		}
 		internalError();
 	}
 	
 	private inline function hexDigit(buf:StringBuf):Void {
-		switch (nextCode()) {
-			$$cases(buf.addChar,
+		switch (stream.peek()) {
+			$$cases(
 				CC.ZERO,
 				CC.ONE,
 				CC.TWO,
@@ -180,8 +244,109 @@ class Lexer {
 				CC.C, CC.c,
 				CC.D, CC.d,
 				CC.E, CC.e,
-				CC.F, CC.f)
+				CC.F, CC.f,
+					stream.skip();
+					buf.addChar(::matched::);
+			)
 			default: unexpected();
+		}
+	}
+	
+	private function fractionalOrExponential(buf:StringBuf):Int {
+		var code:Null<Int> = stream.peek();
+		if (code == null) {
+			return S.NUMBER;
+		}
+		switch (code) {
+			case CC.PERIOD:
+				stream.skip();
+				buf.addChar(CC.PERIOD);
+				return S.LEADING_FRACTIONAL;
+			$$cases(
+				CC.e,
+				CC.E,
+					stream.skip();
+					buf.addChar(::matched::);
+					return S.LEADING_EXPONENTIAL;
+			)
+			default: return S.NUMBER;
+		}
+		internalError();
+	}
+	
+	private function exponential(buf:StringBuf):Int {
+		var code:Null<Int> = stream.peek();
+		if (code == null) {
+			return S.NUMBER;
+		}
+		switch (code) {
+			$$cases(
+				CC.e,
+				CC.E,
+					stream.skip();
+					buf.addChar(::matched::);
+					return S.LEADING_EXPONENTIAL;
+			)
+			default: return S.NUMBER;
+		}
+	}
+	
+	private function digit(buf:StringBuf):Bool {
+		switch (stream.peek()) {
+			$$cases(
+				CC.ZERO,
+				CC.ONE,
+				CC.TWO,
+				CC.THREE,
+				CC.FOUR,
+				CC.FIVE,
+				CC.SIX,
+				CC.SEVEN,
+				CC.EIGHT,
+				CC.NINE,
+					stream.skip();
+					buf.addChar(::matched::);
+					return true;
+			)
+			default: return false;
+		}
+	}
+	
+	private inline function skipWhitespace():Void {
+		while (true) {
+			switch (stream.peek()) {
+				$$cases(
+					0x0009,
+					0x000A,
+					0x000B,
+					0x000C,
+					0x000D,
+					0x0020,
+					0x0085,
+					0x00A0,
+					0x1680,
+					0x180E,
+					0x2000,
+					0x2001,
+					0x2002,
+					0x2003,
+					0x2004,
+					0x2005,
+					0x2006,
+					0x2007,
+					0x2008,
+					0x2009,
+					0x200A,
+					0x2028,
+					0x2029,
+					0x202F,
+					0x205F,
+					0x3000,
+						stream.skip();
+				)
+				default:
+					break;
+			}
 		}
 	}
 }

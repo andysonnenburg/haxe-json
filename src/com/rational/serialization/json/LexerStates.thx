@@ -1,6 +1,6 @@
 package com.rational.serialization.json;
 
-$$const(States,
+$$const(LexerState,
 	START,
 	
 	t,
@@ -22,12 +22,14 @@ $$const(States,
 	HEX_DIGIT1,
 	HEX_DIGIT2,
 	HEX_DIGIT3,
+	STRING,
 	
 	MINUS,
 	LEADING_ZERO,
-	LEADING_DIGIT,
 	INTEGRAL,
-	PERIOD,
+	LEADING_FRACTIONAL,
 	FRACTIONAL,
-	EXPONENTIAL
+	LEADING_EXPONENTIAL,
+	EXPONENTIAL,
+	NUMBER
 )

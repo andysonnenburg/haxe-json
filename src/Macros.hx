@@ -1,14 +1,19 @@
+import com.rational.utils.Tools;
 import haxe.Resource;
 import haxe.Template;
 import haxe.io.Output;
 import neko.io.File;
 import neko.io.Path;
 
+using Reflect;
+using StringTools;
+using com.rational.utils.Tools;
+using neko.FileSystem;
+using neko.io.File;
+using neko.io.Path;
+
 private typedef L = Lambda;
-private typedef FS = neko.FileSystem;
-typedef R = Reflect;
-typedef S = StringTools;
-typedef T = com.rational.utils.Tools;
+private typedef T = Tools;
 
 private class Var {
 	private var name(default, null):String;
@@ -23,30 +28,46 @@ class Macros {
 	private static var macros:Dynamic;
 	private static function __init__():Void {
 		macros = {
-			const: R.makeVarArgs(function(args) {
+			const: function(args) {
 				var resolve:String -> Dynamic = args.shift();
-				var name:String = S.trim(args.shift());
-				var i = new IntIter(0, -1);
-				return "class " + name + " {\n" + T.concat(L.map(args, function(arg:String):String {
-					return "\tpublic static inline var " + S.trim(arg) + ":Int = " + i.next() + ";\n";
-				})) + "}";
-			}),
+				var name:String = cast(args.shift(), String).trim();
+				var i = 0...-1;
+				return 
+					"typedef " + name + " = Int;\n" +
+					"class " + name + "s {\n" + L.map(args, function(arg:String):String {
+						return "\tpublic static inline var " + arg.trim() + ":" + name +" = " + i.next() + ";\n";
+					}).concat() + "}";
+			}.makeVarArgs(),
 			
-			cases: R.makeVarArgs(function(args) {
+			cases: function(args) {
 				var resolve:String -> Dynamic = args.shift();
-				var f:String = S.trim(args.shift());
-				return T.concat(L.map(args, function(arg:String):String {
-					var value = S.trim(arg);
-					return "case " + value + ": " + f + "(" + value + ");\n";
-				}));
-			})
+				var template = new Template(cast(args.pop(), String).trim());
+				return L.map(args, function(arg:String):String {
+					var matched = arg.trim();
+					var block = template.execute({ matched: matched }, macros);
+					return "case " + matched + ": " + block + "\n";
+				}).concat();
+			}.makeVarArgs()
 		};
 	}
 	
 	private static function executeTemplate(path:String, ?context:Dynamic):Void {
-		var template = new Template(File.getContent(path));
-		T.with(File.write(Path.withExtension(path, "hx"), false), function(file) {
-			file.writeString(template.execute(context, macros));
+		var template;
+		try {
+			template = new Template(File.getContent(path));
+		} catch (e:Dynamic) {
+			neko.Lib.println(path + " failed");
+			throw e;
+		}
+		path.withExtension("hx").write(false).with(function(file) {
+			var string;
+			try {
+				string = template.execute(context, macros);
+			} catch (e:Dynamic) {
+				neko.Lib.println(path + " failed");
+				throw e;
+			}
+			file.writeString(string);
 		});
 	}
 
@@ -60,9 +81,9 @@ class Macros {
 	}
 	
 	private static function executeTemplates():Void {
-		walk(".", function(path) {
-			if (Path.extension(path) == "thx") {
-				executeTemplate(path);
+		".".walk(function(path) {
+			if (path.extension() == "thx") {
+				executeTemplate(path, { matched: "::matched::" });
 			}
 		});
 	}
@@ -78,6 +99,7 @@ class Macros {
 			namedCode("RIGHT_BRACKET", "]"),
 			namedCode("COMMA", ","),
 			namedCode("COLON", ":"),
+			namedCode("MINUS", "-"),
 			namedCode("PERIOD", "."),
 			namedCode("QUOTATION_MARK", "\""),
 			namedCode("REVERSE_SOLIDUS", "\\"),
@@ -87,6 +109,7 @@ class Macros {
 			namedCode("NEWLINE", "\n"),
 			namedCode("CARRIAGE_RETURN", "\r"),
 			namedCode("HORIZONTAL_TAB", "\t"),
+			namedCode("SPACE", " "),
 			namedCode("ZERO", "0"),
 			namedCode("ONE", "1"),
 			namedCode("TWO", "2"),
@@ -100,17 +123,5 @@ class Macros {
 		]);
 		var context = { chars: chars };
 		executeTemplate("com/rational/utils/CharCodes.chx", context);
-	}
-	
-	private static function walk<T>(path:String, f:String -> T):Void {
-		var paths = FS.readDirectory(path);
-		for (p in paths) {
-			var fullPath = path + "/" + p;
-			if (FS.isDirectory(fullPath)) {
-				walk(fullPath, f);
-			} else {
-				f(fullPath);
-			}
-		}
 	}
 }

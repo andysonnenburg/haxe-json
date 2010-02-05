@@ -1,10 +1,10 @@
 package com.rational.serialization.json;
 
-import com.rational.utils.CharSequence;
+using com.rational.utils.Tools;
 
 class JSON {	
-	public function decodeObject(s, type) {
-		new Lexer(new CharSequence(s));
+	public function decodeObject(string, type) {
+		new Lexer(string.stream());
 	}
 	
 	public function decodeArray(s, elementType) {

@@ -1,3 +1,5 @@
+-x Tests
+--next
 -main Tests
--neko Tests.n
--cmd neko Tests.n
+-swf9 Tests.swf
+-cmd flashplayer Tests.swf

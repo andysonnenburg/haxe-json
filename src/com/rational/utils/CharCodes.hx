@@ -118,6 +118,8 @@ class CharCodes {
 
 	public static inline var COLON:Int = 58;
 
+	public static inline var MINUS:Int = 45;
+
 	public static inline var PERIOD:Int = 46;
 
 	public static inline var QUOTATION_MARK:Int = 34;
@@ -135,6 +137,8 @@ class CharCodes {
 	public static inline var CARRIAGE_RETURN:Int = 13;
 
 	public static inline var HORIZONTAL_TAB:Int = 9;
+
+	public static inline var SPACE:Int = 32;
 
 	public static inline var ZERO:Int = 48;
 

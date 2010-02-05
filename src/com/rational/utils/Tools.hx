@@ -2,6 +2,12 @@ package com.rational.utils;
 
 import haxe.io.Output;
 
+#if neko
+using neko.FileSystem;
+using neko.io.File;
+using neko.io.Path;
+#end
+
 private typedef L = Lambda;
 
 class Tools {
@@ -35,5 +41,23 @@ class Tools {
 #else
 		return Std.parseInt("0x" + x);
 #end
+	}
+
+#if neko
+	public static function walk<T>(path:String, f:String -> T):Void {
+		var paths = path.readDirectory();
+		for (p in paths) {
+			var fullPath = path + "/" + p;
+			if (fullPath.isDirectory()) {
+				walk(fullPath, f);
+			} else {
+				f(fullPath);
+			}
+		}
+	}
+#end
+
+	public static function stream(string:String):Stream<Int> {
+		return new CharStream(string);
 	}
 }
