@@ -1,0 +1,3 @@
+-cmd haxe macros.hxml
+-cmd haxe compile.hxml
+-cmd haxe test.hxml

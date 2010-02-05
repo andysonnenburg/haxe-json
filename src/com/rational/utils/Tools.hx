@@ -1,0 +1,39 @@
+package com.rational.utils;
+
+import haxe.io.Output;
+
+private typedef L = Lambda;
+
+class Tools {
+
+	public static function array<T>(i:Iterator<T>):Array<T> {
+		var a:Array<T> = [];
+		for (e in i) {
+			a.push(e);
+		}
+		return a;
+	}
+	
+	public static function with<T>(o:Output, f:Output -> T):T {
+		try {
+			return f(o);
+		} catch(unknown:Dynamic) {
+			o.close();
+			throw unknown;
+		}
+	}
+	
+	public static function concat<T>(it:Iterable<T>):String {
+		return L.fold(it, function(a, b) {
+			return Std.string(b) + Std.string(a);
+		}, "");
+	}
+	
+	public static inline function parseHex(x:String):Null<Int> {
+#if flash
+		return (untyped __global__["parseInt"])(x, 16);
+#else
+		return Std.parseInt("0x" + x);
+#end
+	}
+}

@@ -1,0 +1,7 @@
+package com.rational.utils;
+
+class CharCodes {
+::foreach chars::
+	public static inline var ::name:::Int = ::value::;
+::end::
+}

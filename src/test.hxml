@@ -1,0 +1,3 @@
+-main Tests
+-neko Tests.n
+-cmd neko Tests.n

@@ -1,0 +1,33 @@
+package com.rational.serialization.json;
+
+$$const(States,
+	START,
+	
+	t,
+	tr,
+	tru,
+	
+	f,
+	fa,
+	fal,
+	fals,
+	
+	n,
+	nu,
+	nul,
+	
+	QUOTATION_MARK,
+	REVERSE_SOLIDUS,
+	UNICODE_ESCAPE,
+	HEX_DIGIT1,
+	HEX_DIGIT2,
+	HEX_DIGIT3,
+	
+	MINUS,
+	LEADING_ZERO,
+	LEADING_DIGIT,
+	INTEGRAL,
+	PERIOD,
+	FRACTIONAL,
+	EXPONENTIAL
+)
