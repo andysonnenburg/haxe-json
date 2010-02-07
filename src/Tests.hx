@@ -10,9 +10,9 @@ class Tests {
 	public static function main():Void {
 		var runner:TestRunner = new TestRunner();
 		runner.add(new LexerTestCase());
-		runner.add(new LexerWrappingTestCase(" "));
-		runner.add(new LexerWrappingTestCase("\t"));
-		runner.add(new LexerWrappingTestCase("\n"));
+		runner.add(new LexerSpaceTestCase());
+		runner.add(new LexerHorizontalTabTestCase());
+		runner.add(new LexerNewlineTestCase());
 		runner.add(new LexerRandomTestCase());
 		runner.run();
 	}
@@ -188,6 +188,24 @@ class LexerWrappingTestCase extends LexerTestCase {
 	override public function assertNumberTokenValue(string:String, expected:Float) {
 		super.assertNumberTokenValue(wrapping + string + wrapping, expected);
 	}
+}
+
+class LexerSpaceTestCase extends LexerWrappingTestCase {
+	public function new() {
+		super(' ');
+	}
+}
+
+class LexerHorizontalTabTestCase extends LexerWrappingTestCase {
+	public function new() {
+		super('\t');
+	}
+}
+
+class LexerNewlineTestCase extends LexerWrappingTestCase {
+	public function new() {
+		super('\n');
+	}	
 }
 
 class LexerRandomTestCase extends LexerTestCase {
