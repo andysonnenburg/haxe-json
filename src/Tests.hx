@@ -168,6 +168,14 @@ class LexerTestCase extends TestCase {
 		assertNumberTokenValue("123.787e9", 123.787e9);
 		assertNumberTokenValue("456.787e10", 456.787e10);
 	}
+	
+	public function testUnclosedString() {
+		assertLexerError("\"123", "Unexpected end of input");
+	}
+
+	public function testIncompleteKeyword() {
+		assertLexerError("tru", "Unexpected end of input");
+	}
 }
 
 class LexerWrappingTestCase extends LexerTestCase {

@@ -15,7 +15,7 @@ class Lexer {
 	private var peeked:Bool;
 	private var token:Null<Token>;
 	
-	public function new(stream:Stream<Null<Int>>) {
+	public function new(stream:Stream<Int>) {
 		this.stream = stream;
 		this.peeked = false;
 	}
@@ -38,15 +38,36 @@ class Lexer {
 		pop();
 	}
 	
+	private static inline function safePeek(stream:Stream<Int>):Int {
+		var code;
+		if ((code = stream.peek()) == null) {
+			throw new LexerError("Unexpected end of input");
+		}
+		return code;
+	}
+	
+	private static inline function safePop(stream:Stream<Int>):Int {
+		var code;
+		if ((code = stream.pop()) == null) {
+			throw new LexerError("Unexpected end of input");
+		}
+		return code;
+	}
+	
 	private inline function unexpected():Void {
-		throw new LexerError("Unexpected \"" + String.fromCharCode(stream.peek()) + "\"");
+		var code;
+		throw new LexerError(if ((code = stream.peek()) != null) {
+				"Unexpected \"" + String.fromCharCode(code) + "\"";
+			} else {
+				"Unexpected end of input";
+			});
 	}
 	
 	private inline function internalError():Void {
 		throw new LexerError("Internal error");
 	}
 	
-	private function nextToken():Token {
+	private function nextToken():Null<Token> {
 		var state:Int = S.START;
 		var stream:Stream<Int> = this.stream;
 		var code:Null<Int>;
@@ -57,7 +78,9 @@ class Lexer {
 		while (true) {
 			switch (state) {
 				case S.START:
-					code = stream.peek();
+					if ((code = stream.peek()) == null) {
+						return null;
+					}
 					switch (code) {
 						case CC.LEFT_BRACE: stream.skip(); return Token.LEFT_BRACE;
 						case CC.RIGHT_BRACE: stream.skip(); return Token.RIGHT_BRACE;
@@ -149,8 +172,7 @@ class Lexer {
 						default: unexpected();
 					}
 				case S.QUOTATION_MARK:
-					var code = stream.pop();
-					switch (code) {
+					switch ((code = safePop(stream))) {
 						case CC.REVERSE_SOLIDUS: state = S.REVERSE_SOLIDUS;
 						case CC.QUOTATION_MARK:	state = S.STRING;
 						default: buf.addChar(code);
