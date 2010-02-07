@@ -21,12 +21,12 @@ class Tests {
 class LexerTestCase extends TestCase {
 	public function assertToken(string:String, token:Token) {
 		var lexer = new Lexer(string.stream());
-		assertEquals(token, lexer.next());
+		assertEquals(token, lexer.pop());
 	}
 	
 	public function assertStringTokenValue(string:String, expected:String) {
 		var lexer = new Lexer(string.stream());
-		switch (lexer.next()) {
+		switch (lexer.pop()) {
 			case STRING(value): assertEquals(expected, value); 				
 			default: assertTrue(false);
 		}
@@ -34,25 +34,28 @@ class LexerTestCase extends TestCase {
 	
 	public function assertNumberTokenValue(string:String, expected:Float) {
 		var lexer = new Lexer(string.stream());
-		switch (lexer.next()) {
+		switch (lexer.pop()) {
 			case NUMBER(value): assertEquals(expected, value); 				
 			default: assertTrue(false);
 		}
 	}
 	
-	private function assertLexerError(string:String) {
+	private function assertLexerError(string:String, ?expected:String = null) {
 		var lexer = new Lexer(string.stream());
 		var erred = false;
 		try {
-			lexer.next();
+			lexer.pop();
 		} catch (e:LexerError) {
 			erred = true;
+			if (expected != null) {
+				assertEquals(expected, e.message);
+			}
 		}
-		assertTrue(true);
+		assertTrue(erred);
 	}
 
 	public function testFailure() {
-		assertLexerError("what?");
+		assertLexerError("what?", "Unexpected \"w\"");
 	}
 
 	public function testLeftBrace() {
@@ -162,8 +165,8 @@ class LexerTestCase extends TestCase {
 	}
 	
 	public function testIntegralFractionalExponential() {
-		assertNumberTokenValue("123.987e9", 123.987e9);
-		assertNumberTokenValue("456.987e10", 456.987e10);
+		assertNumberTokenValue("123.787e9", 123.787e9);
+		assertNumberTokenValue("456.787e10", 456.787e10);
 	}
 }
 

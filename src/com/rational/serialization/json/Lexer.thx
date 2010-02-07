@@ -12,13 +12,30 @@ private typedef T = Tools;
 
 class Lexer {
 	private var stream:Stream<Int>;
+	private var peeked:Bool;
+	private var token:Null<Token>;
 	
 	public function new(stream:Stream<Null<Int>>) {
 		this.stream = stream;
+		this.peeked = false;
 	}
 	
-	private inline function nextCode():Int {
-		return stream.pop();
+	public function peek():Null<Token> {
+		if (!peeked) {
+			token = nextToken();
+			peeked = true;
+		}
+		return token;
+	}
+	
+	public function pop():Null<Token> {
+		peek();
+		peeked = false;
+		return token;
+	}
+	
+	public function skip():Void {
+		pop();
 	}
 	
 	private inline function unexpected():Void {
@@ -29,8 +46,9 @@ class Lexer {
 		throw new LexerError("Internal error");
 	}
 	
-	public function next():Token {
+	private function nextToken():Token {
 		var state:Int = S.START;
+		var stream:Stream<Int> = this.stream;
 		var buf:StringBuf = null;
 		var hexBuf:StringBuf = null;
 		var token:Token;
@@ -38,24 +56,27 @@ class Lexer {
 		while (true) {
 			switch (state) {
 				case S.START:
-					switch (nextCode()) {
-						case CC.LEFT_BRACE: return Token.LEFT_BRACE;
-						case CC.RIGHT_BRACE: return Token.RIGHT_BRACE;
-						case CC.LEFT_BRACKET: return Token.LEFT_BRACKET;
-						case CC.RIGHT_BRACKET: return Token.RIGHT_BRACKET;
-						case CC.COMMA: return Token.COMMA;
-						case CC.COLON: return Token.COLON;
-						case CC.t: state = S.t;
-						case CC.f: state = S.f;
-						case CC.n: state = S.n;
+					switch (stream.peek()) {
+						case CC.LEFT_BRACE: stream.skip(); return Token.LEFT_BRACE;
+						case CC.RIGHT_BRACE: stream.skip(); return Token.RIGHT_BRACE;
+						case CC.LEFT_BRACKET: stream.skip(); return Token.LEFT_BRACKET;
+						case CC.RIGHT_BRACKET: stream.skip(); return Token.RIGHT_BRACKET;
+						case CC.COMMA: stream.skip(); return Token.COMMA;
+						case CC.COLON: stream.skip(); return Token.COLON;
+						case CC.t: stream.skip(); state = S.t;
+						case CC.f: stream.skip(); state = S.f;
+						case CC.n: stream.skip(); state = S.n;
 						case CC.QUOTATION_MARK:
+							stream.skip();
 							buf = new StringBuf();
 							state = S.QUOTATION_MARK;
 						case CC.MINUS:
+							skip();
 							buf = new StringBuf();
 							buf.addChar(CC.MINUS);
 							state = S.MINUS;
 						case CC.ZERO:
+							stream.skip();
 							buf = new StringBuf();
 							buf.addChar(CC.ZERO);
 							state = S.LEADING_ZERO;
@@ -69,6 +90,7 @@ class Lexer {
 							CC.SEVEN,
 							CC.EIGHT,
 							CC.NINE,
+								stream.skip();
 								buf = new StringBuf();
 								buf.addChar(::matched::);
 								state = S.INTEGRAL;
@@ -76,53 +98,53 @@ class Lexer {
 						default: unexpected();
 					}
 				case S.t:
-					switch (nextCode()) {
-						case CC.r: state = S.tr;
+					switch (stream.peek()) {
+						case CC.r: stream.skip(); state = S.tr;
 						default: unexpected();
 					}
 				case S.tr:
-					switch (nextCode()) {
-						case CC.u: state = S.tru;
+					switch (stream.peek()) {
+						case CC.u: stream.skip(); state = S.tru;
 						default: unexpected();
 					}
 				case S.tru:
-					switch (nextCode()) {
-						case CC.e: return Token.TRUE;
+					switch (stream.peek()) {
+						case CC.e: stream.skip(); return Token.TRUE;
 						default: unexpected();
 					}
 				case S.f:
-					switch (nextCode()) {
-						case CC.a: state = S.fa;
+					switch (stream.peek()) {
+						case CC.a: stream.skip(); state = S.fa;
 						default: unexpected();
 					}
 				case S.fa:
-					switch (nextCode()) {
-						case CC.l: state = S.fal;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); state = S.fal;
 						default: unexpected();
 					}
 				case S.fal:
-					switch (nextCode()) {
-						case CC.s: state = S.fals;
+					switch (stream.peek()) {
+						case CC.s: stream.skip(); state = S.fals;
 						default: unexpected();
 					}
 				case S.fals:
-					switch (nextCode()) {
-						case CC.e: return Token.FALSE;
+					switch (stream.peek()) {
+						case CC.e: stream.skip(); return Token.FALSE;
 						default: unexpected();
 					}
 				case S.n:
-					switch (nextCode()) {
-						case CC.u: state = S.nu;
+					switch (stream.peek()) {
+						case CC.u: stream.skip(); state = S.nu;
 						default: unexpected();
 					}
 				case S.nu:
-					switch (nextCode()) {
-						case CC.l: state = S.nul;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); state = S.nul;
 						default: unexpected();
 					}
 				case S.nul:
-					switch (nextCode()) {
-						case CC.l: return Token.NULL;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); return Token.NULL;
 						default: unexpected();
 					}
 				case S.QUOTATION_MARK:
@@ -133,32 +155,37 @@ class Lexer {
 						default: buf.addChar(code);
 					}
 				case S.REVERSE_SOLIDUS:
-					switch (nextCode()) {
-						case CC.QUOTATION_MARK:
-							buf.addChar(CC.QUOTATION_MARK);
-							state = S.QUOTATION_MARK;
-						case CC.REVERSE_SOLIDUS:
-							buf.addChar(CC.REVERSE_SOLIDUS);
-							state = S.QUOTATION_MARK;
-						case CC.SOLIDUS:
-							buf.addChar(CC.SOLIDUS);
-							state = S.QUOTATION_MARK;
+					switch (stream.peek()) {
+						$$cases(
+							CC.QUOTATION_MARK,
+							CC.REVERSE_SOLIDUS,
+							CC.SOLIDUS,
+								stream.skip();
+								buf.addChar(::matched::);
+								state = S.QUOTATION_MARK;
+						)
 						case CC.b:
+							stream.skip();
 							buf.addChar(CC.BACKSPACE);
 							state = S.QUOTATION_MARK;
 						case CC.f:
+							stream.skip();
 							buf.addChar(CC.FORMFEED);
 							state = S.QUOTATION_MARK;
 						case CC.n:
+							stream.skip();
 							buf.addChar(CC.NEWLINE);
 							state = S.QUOTATION_MARK;
 						case CC.r:
+							stream.skip();
 							buf.addChar(CC.CARRIAGE_RETURN);
 							state = S.QUOTATION_MARK;
 						case CC.t:
+							stream.skip();
 							buf.addChar(CC.HORIZONTAL_TAB);
 							state = S.QUOTATION_MARK;
 						case CC.u:
+							stream.skip();
 							hexBuf = new StringBuf();
 							state = S.UNICODE_ESCAPE;
 						default: unexpected();
@@ -177,8 +204,9 @@ class Lexer {
 					buf.addChar(T.parseHex(hexBuf.toString()));
 					state = S.QUOTATION_MARK;
 				case S.MINUS:
-					switch(nextCode()) {
+					switch(stream.peek()) {
 						case CC.ZERO:
+							stream.skip();
 							buf.addChar(CC.ZERO);
 							state = S.LEADING_ZERO;
 						$$cases(
@@ -191,6 +219,7 @@ class Lexer {
 							CC.SEVEN,
 							CC.EIGHT,
 							CC.NINE,
+								stream.skip();
 								buf.addChar(::matched::);
 								state = S.INTEGRAL;
 						)

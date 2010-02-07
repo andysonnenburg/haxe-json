@@ -12,13 +12,30 @@ private typedef T = Tools;
 
 class Lexer {
 	private var stream:Stream<Int>;
+	private var peeked:Bool;
+	private var token:Null<Token>;
 	
 	public function new(stream:Stream<Null<Int>>) {
 		this.stream = stream;
+		this.peeked = false;
 	}
 	
-	private inline function nextCode():Int {
-		return stream.pop();
+	public function peek():Null<Token> {
+		if (!peeked) {
+			token = nextToken();
+			peeked = true;
+		}
+		return token;
+	}
+	
+	public function pop():Null<Token> {
+		peek();
+		peeked = false;
+		return token;
+	}
+	
+	public function skip():Void {
+		pop();
 	}
 	
 	private inline function unexpected():Void {
@@ -29,8 +46,9 @@ class Lexer {
 		throw new LexerError("Internal error");
 	}
 	
-	public function next():Token {
+	private function nextToken():Token {
 		var state:Int = S.START;
+		var stream:Stream<Int> = this.stream;
 		var buf:StringBuf = null;
 		var hexBuf:StringBuf = null;
 		var token:Token;
@@ -38,105 +56,125 @@ class Lexer {
 		while (true) {
 			switch (state) {
 				case S.START:
-					switch (nextCode()) {
-						case CC.LEFT_BRACE: return Token.LEFT_BRACE;
-						case CC.RIGHT_BRACE: return Token.RIGHT_BRACE;
-						case CC.LEFT_BRACKET: return Token.LEFT_BRACKET;
-						case CC.RIGHT_BRACKET: return Token.RIGHT_BRACKET;
-						case CC.COMMA: return Token.COMMA;
-						case CC.COLON: return Token.COLON;
-						case CC.t: state = S.t;
-						case CC.f: state = S.f;
-						case CC.n: state = S.n;
+					switch (stream.peek()) {
+						case CC.LEFT_BRACE: stream.skip(); return Token.LEFT_BRACE;
+						case CC.RIGHT_BRACE: stream.skip(); return Token.RIGHT_BRACE;
+						case CC.LEFT_BRACKET: stream.skip(); return Token.LEFT_BRACKET;
+						case CC.RIGHT_BRACKET: stream.skip(); return Token.RIGHT_BRACKET;
+						case CC.COMMA: stream.skip(); return Token.COMMA;
+						case CC.COLON: stream.skip(); return Token.COLON;
+						case CC.t: stream.skip(); state = S.t;
+						case CC.f: stream.skip(); state = S.f;
+						case CC.n: stream.skip(); state = S.n;
 						case CC.QUOTATION_MARK:
+							stream.skip();
 							buf = new StringBuf();
 							state = S.QUOTATION_MARK;
 						case CC.MINUS:
+							skip();
 							buf = new StringBuf();
 							buf.addChar(CC.MINUS);
 							state = S.MINUS;
 						case CC.ZERO:
+							stream.skip();
 							buf = new StringBuf();
 							buf.addChar(CC.ZERO);
 							state = S.LEADING_ZERO;
-						case CC.ONE: buf = new StringBuf();
+						case CC.ONE: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.ONE);
 								state = S.INTEGRAL;
-case CC.TWO: buf = new StringBuf();
+
+							case CC.TWO: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.TWO);
 								state = S.INTEGRAL;
-case CC.THREE: buf = new StringBuf();
+
+							case CC.THREE: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.THREE);
 								state = S.INTEGRAL;
-case CC.FOUR: buf = new StringBuf();
+
+							case CC.FOUR: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.FOUR);
 								state = S.INTEGRAL;
-case CC.FIVE: buf = new StringBuf();
+
+							case CC.FIVE: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.FIVE);
 								state = S.INTEGRAL;
-case CC.SIX: buf = new StringBuf();
+
+							case CC.SIX: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.SIX);
 								state = S.INTEGRAL;
-case CC.SEVEN: buf = new StringBuf();
+
+							case CC.SEVEN: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.SEVEN);
 								state = S.INTEGRAL;
-case CC.EIGHT: buf = new StringBuf();
+
+							case CC.EIGHT: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.EIGHT);
 								state = S.INTEGRAL;
-case CC.NINE: buf = new StringBuf();
+
+							case CC.NINE: stream.skip();
+								buf = new StringBuf();
 								buf.addChar(CC.NINE);
 								state = S.INTEGRAL;
 
 						default: unexpected();
 					}
 				case S.t:
-					switch (nextCode()) {
-						case CC.r: state = S.tr;
+					switch (stream.peek()) {
+						case CC.r: stream.skip(); state = S.tr;
 						default: unexpected();
 					}
 				case S.tr:
-					switch (nextCode()) {
-						case CC.u: state = S.tru;
+					switch (stream.peek()) {
+						case CC.u: stream.skip(); state = S.tru;
 						default: unexpected();
 					}
 				case S.tru:
-					switch (nextCode()) {
-						case CC.e: return Token.TRUE;
+					switch (stream.peek()) {
+						case CC.e: stream.skip(); return Token.TRUE;
 						default: unexpected();
 					}
 				case S.f:
-					switch (nextCode()) {
-						case CC.a: state = S.fa;
+					switch (stream.peek()) {
+						case CC.a: stream.skip(); state = S.fa;
 						default: unexpected();
 					}
 				case S.fa:
-					switch (nextCode()) {
-						case CC.l: state = S.fal;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); state = S.fal;
 						default: unexpected();
 					}
 				case S.fal:
-					switch (nextCode()) {
-						case CC.s: state = S.fals;
+					switch (stream.peek()) {
+						case CC.s: stream.skip(); state = S.fals;
 						default: unexpected();
 					}
 				case S.fals:
-					switch (nextCode()) {
-						case CC.e: return Token.FALSE;
+					switch (stream.peek()) {
+						case CC.e: stream.skip(); return Token.FALSE;
 						default: unexpected();
 					}
 				case S.n:
-					switch (nextCode()) {
-						case CC.u: state = S.nu;
+					switch (stream.peek()) {
+						case CC.u: stream.skip(); state = S.nu;
 						default: unexpected();
 					}
 				case S.nu:
-					switch (nextCode()) {
-						case CC.l: state = S.nul;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); state = S.nul;
 						default: unexpected();
 					}
 				case S.nul:
-					switch (nextCode()) {
-						case CC.l: return Token.NULL;
+					switch (stream.peek()) {
+						case CC.l: stream.skip(); return Token.NULL;
 						default: unexpected();
 					}
 				case S.QUOTATION_MARK:
@@ -147,32 +185,41 @@ case CC.NINE: buf = new StringBuf();
 						default: buf.addChar(code);
 					}
 				case S.REVERSE_SOLIDUS:
-					switch (nextCode()) {
-						case CC.QUOTATION_MARK:
-							buf.addChar(CC.QUOTATION_MARK);
-							state = S.QUOTATION_MARK;
-						case CC.REVERSE_SOLIDUS:
-							buf.addChar(CC.REVERSE_SOLIDUS);
-							state = S.QUOTATION_MARK;
-						case CC.SOLIDUS:
-							buf.addChar(CC.SOLIDUS);
-							state = S.QUOTATION_MARK;
+					switch (stream.peek()) {
+						case CC.QUOTATION_MARK: stream.skip();
+								buf.addChar(CC.QUOTATION_MARK);
+								state = S.QUOTATION_MARK;
+
+							case CC.REVERSE_SOLIDUS: stream.skip();
+								buf.addChar(CC.REVERSE_SOLIDUS);
+								state = S.QUOTATION_MARK;
+
+							case CC.SOLIDUS: stream.skip();
+								buf.addChar(CC.SOLIDUS);
+								state = S.QUOTATION_MARK;
+
 						case CC.b:
+							stream.skip();
 							buf.addChar(CC.BACKSPACE);
 							state = S.QUOTATION_MARK;
 						case CC.f:
+							stream.skip();
 							buf.addChar(CC.FORMFEED);
 							state = S.QUOTATION_MARK;
 						case CC.n:
+							stream.skip();
 							buf.addChar(CC.NEWLINE);
 							state = S.QUOTATION_MARK;
 						case CC.r:
+							stream.skip();
 							buf.addChar(CC.CARRIAGE_RETURN);
 							state = S.QUOTATION_MARK;
 						case CC.t:
+							stream.skip();
 							buf.addChar(CC.HORIZONTAL_TAB);
 							state = S.QUOTATION_MARK;
 						case CC.u:
+							stream.skip();
 							hexBuf = new StringBuf();
 							state = S.UNICODE_ESCAPE;
 						default: unexpected();
@@ -191,27 +238,45 @@ case CC.NINE: buf = new StringBuf();
 					buf.addChar(T.parseHex(hexBuf.toString()));
 					state = S.QUOTATION_MARK;
 				case S.MINUS:
-					switch(nextCode()) {
+					switch(stream.peek()) {
 						case CC.ZERO:
+							stream.skip();
 							buf.addChar(CC.ZERO);
 							state = S.LEADING_ZERO;
-						case CC.ONE: buf.addChar(CC.ONE);
+						case CC.ONE: stream.skip();
+								buf.addChar(CC.ONE);
 								state = S.INTEGRAL;
-case CC.TWO: buf.addChar(CC.TWO);
+
+							case CC.TWO: stream.skip();
+								buf.addChar(CC.TWO);
 								state = S.INTEGRAL;
-case CC.THREE: buf.addChar(CC.THREE);
+
+							case CC.THREE: stream.skip();
+								buf.addChar(CC.THREE);
 								state = S.INTEGRAL;
-case CC.FOUR: buf.addChar(CC.FOUR);
+
+							case CC.FOUR: stream.skip();
+								buf.addChar(CC.FOUR);
 								state = S.INTEGRAL;
-case CC.FIVE: buf.addChar(CC.FIVE);
+
+							case CC.FIVE: stream.skip();
+								buf.addChar(CC.FIVE);
 								state = S.INTEGRAL;
-case CC.SIX: buf.addChar(CC.SIX);
+
+							case CC.SIX: stream.skip();
+								buf.addChar(CC.SIX);
 								state = S.INTEGRAL;
-case CC.SEVEN: buf.addChar(CC.SEVEN);
+
+							case CC.SEVEN: stream.skip();
+								buf.addChar(CC.SEVEN);
 								state = S.INTEGRAL;
-case CC.EIGHT: buf.addChar(CC.EIGHT);
+
+							case CC.EIGHT: stream.skip();
+								buf.addChar(CC.EIGHT);
 								state = S.INTEGRAL;
-case CC.NINE: buf.addChar(CC.NINE);
+
+							case CC.NINE: stream.skip();
+								buf.addChar(CC.NINE);
 								state = S.INTEGRAL;
 
 					}
@@ -250,47 +315,68 @@ case CC.NINE: buf.addChar(CC.NINE);
 		switch (stream.peek()) {
 			case CC.ZERO: stream.skip();
 					buf.addChar(CC.ZERO);
-case CC.ONE: stream.skip();
+
+				case CC.ONE: stream.skip();
 					buf.addChar(CC.ONE);
-case CC.TWO: stream.skip();
+
+				case CC.TWO: stream.skip();
 					buf.addChar(CC.TWO);
-case CC.THREE: stream.skip();
+
+				case CC.THREE: stream.skip();
 					buf.addChar(CC.THREE);
-case CC.FOUR: stream.skip();
+
+				case CC.FOUR: stream.skip();
 					buf.addChar(CC.FOUR);
-case CC.FIVE: stream.skip();
+
+				case CC.FIVE: stream.skip();
 					buf.addChar(CC.FIVE);
-case CC.SIX: stream.skip();
+
+				case CC.SIX: stream.skip();
 					buf.addChar(CC.SIX);
-case CC.SEVEN: stream.skip();
+
+				case CC.SEVEN: stream.skip();
 					buf.addChar(CC.SEVEN);
-case CC.EIGHT: stream.skip();
+
+				case CC.EIGHT: stream.skip();
 					buf.addChar(CC.EIGHT);
-case CC.NINE: stream.skip();
+
+				case CC.NINE: stream.skip();
 					buf.addChar(CC.NINE);
-case CC.A: stream.skip();
+
+				case CC.A: stream.skip();
 					buf.addChar(CC.A);
-case CC.a: stream.skip();
+
+				case CC.a: stream.skip();
 					buf.addChar(CC.a);
-case CC.B: stream.skip();
+
+				case CC.B: stream.skip();
 					buf.addChar(CC.B);
-case CC.b: stream.skip();
+
+				case CC.b: stream.skip();
 					buf.addChar(CC.b);
-case CC.C: stream.skip();
+
+				case CC.C: stream.skip();
 					buf.addChar(CC.C);
-case CC.c: stream.skip();
+
+				case CC.c: stream.skip();
 					buf.addChar(CC.c);
-case CC.D: stream.skip();
+
+				case CC.D: stream.skip();
 					buf.addChar(CC.D);
-case CC.d: stream.skip();
+
+				case CC.d: stream.skip();
 					buf.addChar(CC.d);
-case CC.E: stream.skip();
+
+				case CC.E: stream.skip();
 					buf.addChar(CC.E);
-case CC.e: stream.skip();
+
+				case CC.e: stream.skip();
 					buf.addChar(CC.e);
-case CC.F: stream.skip();
+
+				case CC.F: stream.skip();
 					buf.addChar(CC.F);
-case CC.f: stream.skip();
+
+				case CC.f: stream.skip();
 					buf.addChar(CC.f);
 
 			default: unexpected();
@@ -310,7 +396,8 @@ case CC.f: stream.skip();
 			case CC.e: stream.skip();
 					buf.addChar(CC.e);
 					return S.LEADING_EXPONENTIAL;
-case CC.E: stream.skip();
+
+				case CC.E: stream.skip();
 					buf.addChar(CC.E);
 					return S.LEADING_EXPONENTIAL;
 
@@ -328,7 +415,8 @@ case CC.E: stream.skip();
 			case CC.e: stream.skip();
 					buf.addChar(CC.e);
 					return S.LEADING_EXPONENTIAL;
-case CC.E: stream.skip();
+
+				case CC.E: stream.skip();
 					buf.addChar(CC.E);
 					return S.LEADING_EXPONENTIAL;
 
@@ -341,31 +429,40 @@ case CC.E: stream.skip();
 			case CC.ZERO: stream.skip();
 					buf.addChar(CC.ZERO);
 					return true;
-case CC.ONE: stream.skip();
+
+				case CC.ONE: stream.skip();
 					buf.addChar(CC.ONE);
 					return true;
-case CC.TWO: stream.skip();
+
+				case CC.TWO: stream.skip();
 					buf.addChar(CC.TWO);
 					return true;
-case CC.THREE: stream.skip();
+
+				case CC.THREE: stream.skip();
 					buf.addChar(CC.THREE);
 					return true;
-case CC.FOUR: stream.skip();
+
+				case CC.FOUR: stream.skip();
 					buf.addChar(CC.FOUR);
 					return true;
-case CC.FIVE: stream.skip();
+
+				case CC.FIVE: stream.skip();
 					buf.addChar(CC.FIVE);
 					return true;
-case CC.SIX: stream.skip();
+
+				case CC.SIX: stream.skip();
 					buf.addChar(CC.SIX);
 					return true;
-case CC.SEVEN: stream.skip();
+
+				case CC.SEVEN: stream.skip();
 					buf.addChar(CC.SEVEN);
 					return true;
-case CC.EIGHT: stream.skip();
+
+				case CC.EIGHT: stream.skip();
 					buf.addChar(CC.EIGHT);
 					return true;
-case CC.NINE: stream.skip();
+
+				case CC.NINE: stream.skip();
 					buf.addChar(CC.NINE);
 					return true;
 
@@ -377,31 +474,56 @@ case CC.NINE: stream.skip();
 		while (true) {
 			switch (stream.peek()) {
 				case 0x0009: stream.skip();
-case 0x000A: stream.skip();
-case 0x000B: stream.skip();
-case 0x000C: stream.skip();
-case 0x000D: stream.skip();
-case 0x0020: stream.skip();
-case 0x0085: stream.skip();
-case 0x00A0: stream.skip();
-case 0x1680: stream.skip();
-case 0x180E: stream.skip();
-case 0x2000: stream.skip();
-case 0x2001: stream.skip();
-case 0x2002: stream.skip();
-case 0x2003: stream.skip();
-case 0x2004: stream.skip();
-case 0x2005: stream.skip();
-case 0x2006: stream.skip();
-case 0x2007: stream.skip();
-case 0x2008: stream.skip();
-case 0x2009: stream.skip();
-case 0x200A: stream.skip();
-case 0x2028: stream.skip();
-case 0x2029: stream.skip();
-case 0x202F: stream.skip();
-case 0x205F: stream.skip();
-case 0x3000: stream.skip();
+
+					case 0x000A: stream.skip();
+
+					case 0x000B: stream.skip();
+
+					case 0x000C: stream.skip();
+
+					case 0x000D: stream.skip();
+
+					case 0x0020: stream.skip();
+
+					case 0x0085: stream.skip();
+
+					case 0x00A0: stream.skip();
+
+					case 0x1680: stream.skip();
+
+					case 0x180E: stream.skip();
+
+					case 0x2000: stream.skip();
+
+					case 0x2001: stream.skip();
+
+					case 0x2002: stream.skip();
+
+					case 0x2003: stream.skip();
+
+					case 0x2004: stream.skip();
+
+					case 0x2005: stream.skip();
+
+					case 0x2006: stream.skip();
+
+					case 0x2007: stream.skip();
+
+					case 0x2008: stream.skip();
+
+					case 0x2009: stream.skip();
+
+					case 0x200A: stream.skip();
+
+					case 0x2028: stream.skip();
+
+					case 0x2029: stream.skip();
+
+					case 0x202F: stream.skip();
+
+					case 0x205F: stream.skip();
+
+					case 0x3000: stream.skip();
 
 				default:
 					break;

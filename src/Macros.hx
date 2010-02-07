@@ -32,6 +32,11 @@ class Macros {
 				var resolve:String -> Dynamic = args.shift();
 				var name:String = cast(args.shift(), String).trim();
 				var i = 0...-1;
+				var macros = {
+					next: function(resolve:String -> Dynamic):String {
+						return Std.string(i.next());
+					}
+				};
 				return 
 					"typedef " + name + " = Int;\n" +
 					"class " + name + "s {\n" + L.map(args, function(arg:String):String {
@@ -39,14 +44,29 @@ class Macros {
 					}).concat() + "}";
 			}.makeVarArgs(),
 			
-			cases: function(args) {
+			cases: function(args:Array<Dynamic>) {
 				var resolve:String -> Dynamic = args.shift();
 				var template = new Template(cast(args.pop(), String).trim());
-				return L.map(args, function(arg:String):String {
+				var first = cast(args[0], String);
+				var buf = new StringBuf();
+				for (i in 0...first.length) {
+					if (!first.isSpace(i)) {
+						break;
+					}
+					buf.addChar(first.charCodeAt(i));
+				}
+				var indent = buf.toString();
+				var cases = L.map(args, function(arg:String):String {
 					var matched = arg.trim();
 					var block = template.execute({ matched: matched }, macros);
 					return "case " + matched + ": " + block + "\n";
-				}).concat();
+				});
+				var firstCase = cases.pop();
+				cases = L.map(cases, function(arg:String):String {
+					return indent + arg;
+				});
+				cases.push(firstCase);
+				return cases.concat();
 			}.makeVarArgs()
 		};
 	}

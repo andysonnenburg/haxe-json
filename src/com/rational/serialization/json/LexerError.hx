@@ -6,7 +6,7 @@ class LexerError
 #end
 {
 #if !flash
-	private var message:String;
+	public var message(default, null):String;
 #end
 	public function new(message) {
 #if flash
