@@ -5,6 +5,7 @@ import haxe.io.Output;
 import neko.io.File;
 import neko.io.Path;
 
+using Macros;
 using Reflect;
 using StringTools;
 using com.rational.utils.Tools;
@@ -27,11 +28,11 @@ private class Var {
 class Macros {
 	private static var macros:Dynamic;
 	private static function __init__():Void {
+		var i = 0...-1;
 		macros = {
 			const: function(args) {
 				var resolve:String -> Dynamic = args.shift();
 				var name:String = cast(args.shift(), String).trim();
-				var i = 0...-1;
 				var macros = {
 					next: function(resolve:String -> Dynamic):String {
 						return Std.string(i.next());
@@ -42,31 +43,6 @@ class Macros {
 					"class " + name + "s {\n" + L.map(args, function(arg:String):String {
 						return "\tpublic static inline var " + arg.trim() + ":" + name +" = " + i.next() + ";\n";
 					}).concat() + "}";
-			}.makeVarArgs(),
-			
-			cases: function(args:Array<Dynamic>) {
-				var resolve:String -> Dynamic = args.shift();
-				var template = new Template(cast(args.pop(), String).trim());
-				var first = cast(args[0], String);
-				var buf = new StringBuf();
-				for (i in 0...first.length) {
-					if (!first.isSpace(i)) {
-						break;
-					}
-					buf.addChar(first.charCodeAt(i));
-				}
-				var indent = buf.toString();
-				var cases = L.map(args, function(arg:String):String {
-					var matched = arg.trim();
-					var block = template.execute({ matched: matched }, macros);
-					return "case " + matched + ": " + block + "\n";
-				});
-				var firstCase = cases.pop();
-				cases = L.map(cases, function(arg:String):String {
-					return indent + arg;
-				});
-				cases.push(firstCase);
-				return cases.concat();
 			}.makeVarArgs()
 		};
 	}
@@ -103,7 +79,7 @@ class Macros {
 	private static function executeTemplates():Void {
 		".".walk(function(path) {
 			if (path.extension() == "thx") {
-				executeTemplate(path, { matched: "::matched::" });
+				executeTemplate(path);
 			}
 		});
 	}
@@ -139,9 +115,18 @@ class Macros {
 			namedCode("SIX", "6"),
 			namedCode("SEVEN", "7"),
 			namedCode("EIGHT", "8"),
-			namedCode("NINE", "9")
+			namedCode("NINE", "9"),
+			namedCode("NULL", "\x00")
 		]);
 		var context = { chars: chars };
 		executeTemplate("com/rational/utils/CharCodes.chx", context);
+	}
+	
+	public static function execute(template:String, context:Dynamic, ?macros:Dynamic = null):String {
+		return if (macros == null) {
+			new Template(template).execute(context);
+		} else {
+			new Template(template).execute(context, macros);
+		}
 	}
 }

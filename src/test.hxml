@@ -1,5 +1,13 @@
 -x Tests
+#--next
+#-cmd mxmlc -accessible ComplexObject.as -output Objects.swf
+#--next
+#--gen-hx-classes Objects.swf
+#-cmd mv hxclasses/* .
+#-cmd rm -r hxclasses
 --next
 -main Tests
+#-swf-lib Objects.swf
 -swf9 Tests.swf
+--next
 -cmd flashplayer Tests.swf

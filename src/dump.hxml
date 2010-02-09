@@ -1,0 +1,4 @@
+-swf9 Dump.swf
+-main Dump
+--next
+-cmd swfdump -D Dump.swf | less

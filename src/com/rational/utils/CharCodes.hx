@@ -160,4 +160,6 @@ class CharCodes {
 
 	public static inline var NINE:Int = 57;
 
+	public static inline var NULL:Int = 0;
+
 }

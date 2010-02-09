@@ -1,5 +1,6 @@
 package com.rational.utils;
 
+import haxe.Template;
 import haxe.io.Output;
 
 #if neko
@@ -57,7 +58,7 @@ class Tools {
 	}
 #end
 
-	public static function stream(string:String):Stream<Int> {
+	public static inline function stream(string:String):Stream<Int> {
 		return new CharStream(string);
 	}
 }

@@ -1,9 +1,24 @@
 package com.rational.serialization.json;
 
-import flash.Error;
-
-class ParserError extends Error {
-	public function new(unexpected:Token, expected:Array<Token>) {
-		super("Unexpected " + unexpected + ", expecting " + expected.join(", "));
+class ParserError
+#if flash
+	extends flash.Error
+#end
+{
+#if !flash
+	public var message(default, null):String;
+#end
+	public function new(message) {
+#if flash
+		super(message);
+#else
+		this.message = message;
+#end
 	}
+	
+#if !flash
+	public function toString():String {
+		return message;
+	}
+#end
 }

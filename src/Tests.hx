@@ -1,10 +1,15 @@
+import com.rational.utils.IterStream;
+import com.rational.utils.Stream;
 import com.rational.serialization.json.Lexer;
 import com.rational.serialization.json.LexerError;
+import com.rational.serialization.json.Parser;
 import com.rational.serialization.json.Token;
 import haxe.unit.TestCase;
 import haxe.unit.TestRunner;
 
 using com.rational.utils.Tools;
+
+private typedef T = Token;
 
 class Tests {
 	public static function main():Void {
@@ -14,6 +19,7 @@ class Tests {
 		runner.add(new LexerHorizontalTabTestCase());
 		runner.add(new LexerNewlineTestCase());
 		runner.add(new LexerRandomTestCase());
+		runner.add(new ParserTestCase());
 		runner.run();
 	}
 }
@@ -235,4 +241,135 @@ class LexerRandomTestCase extends LexerTestCase {
 		}
 	}
 #end
+}
+
+class SimpleObject {
+	public function new() {}
+	public var booleanField:Bool;
+	public var stringField:String;
+	public var numberField:Float;
+}
+
+class ComplexObject {
+	public function new() {}
+	public var simpleObject:SimpleObject;
+}
+
+class ParserTestCase extends TestCase {
+	private var parser:Parser;
+  
+  public function new() {
+  	super();
+	}
+  
+	override public function setup() {
+		parser = new Parser();
+	}
+
+	public function testSimpleObject() {
+		var tokens:Iterable<Token> = [
+			T.LEFT_BRACE,
+			T.STRING("numberField"),
+			T.COLON,
+			T.NUMBER(3.14),
+			T.COMMA,
+			T.STRING("stringField"),
+			T.COLON,
+			T.STRING("hello, world!"),
+			T.COMMA,
+			T.STRING("booleanField"),
+			T.COLON,
+			T.TRUE,
+			T.RIGHT_BRACE
+		];
+		var stream = new IterStream<Token>(tokens);
+		var simple:SimpleObject = parser.parse(stream, SimpleObject);
+		assertEquals(null, stream.peek());
+		assertTrue(simple.booleanField);
+		assertEquals("hello, world!", simple.stringField);
+		assertEquals(3.14, simple.numberField);
+	}
+	
+	public function testComplexObject() {
+		var tokens:Iterable<Token> = [
+			T.LEFT_BRACE,
+			T.STRING("simpleObject"),
+			T.COLON,
+			T.LEFT_BRACE,
+			T.STRING("booleanField"),
+			T.COLON,
+			T.TRUE,
+			T.COMMA,
+			T.STRING("numberField"),
+			T.COLON,
+			T.NUMBER(3.14),
+			T.COMMA,
+			T.STRING("stringField"),
+			T.COLON,
+			T.STRING("hello, world!"),
+			T.RIGHT_BRACE,
+			T.RIGHT_BRACE
+		];
+		var stream = new IterStream<Token>(tokens);
+	 	var complex:ComplexObject = parser.parse(stream, ComplexObject);
+	 	assertEquals(null, stream.peek());
+#if flash
+	 	var simple:SimpleObject = cast(complex.simpleObject, SimpleObject);
+#else
+		var simple = complex.simpleObject;
+#end
+		assertTrue(simple.booleanField);
+		assertEquals("hello, world!", simple.stringField);
+		assertEquals(3.14, simple.numberField);
+	}
+	
+	public function testSimpleObjects() {
+		var tokens:Iterable<Token> = [
+			T.LEFT_BRACKET,
+			T.LEFT_BRACE,
+			T.STRING("numberField"),
+			T.COLON,
+			T.NUMBER(3.14),
+			T.COMMA,
+			T.STRING("stringField"),
+			T.COLON,
+			T.STRING("hello, world!"),
+			T.COMMA,
+			T.STRING("booleanField"),
+			T.COLON,
+			T.TRUE,
+			T.RIGHT_BRACE,
+			T.LEFT_BRACE,
+			T.STRING("numberField"),
+			T.COLON,
+			T.NUMBER(7.3),
+			T.COMMA,
+			T.STRING("stringField"),
+			T.COLON,
+			T.STRING("goodbye, cruel world!"),
+			T.COMMA,
+			T.STRING("booleanField"),
+			T.COLON,
+			T.FALSE,
+			T.RIGHT_BRACE,
+			T.RIGHT_BRACKET
+		];
+		var simples:Array<SimpleObject> = parser.parse(new IterStream<Token>(tokens), SimpleObject);
+#if flash
+	 	var simple0:SimpleObject = cast(simples[0], SimpleObject);
+#else
+		var simple0 = simples[0];
+#end
+		assertTrue(simple0.booleanField);
+		assertEquals("hello, world!", simple0.stringField);
+		assertEquals(3.14, simple0.numberField);
+#if flash
+	 	var simple1:SimpleObject = cast(simples[1], SimpleObject);
+#else
+		var simple1 = simples[1];
+#end
+		assertFalse(simple1.booleanField);
+		assertEquals("goodbye, cruel world!", simple1.stringField);
+		assertEquals(7.3, simple1.numberField);
+	}
 }

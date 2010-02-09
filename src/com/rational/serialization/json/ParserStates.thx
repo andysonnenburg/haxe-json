@@ -1,0 +1,10 @@
+package com.rational.serialization.json;
+
+$$const(ParserState,
+	START,
+	
+	NAME,
+	COLON,
+	VALUE,
+	COMMA
+)
