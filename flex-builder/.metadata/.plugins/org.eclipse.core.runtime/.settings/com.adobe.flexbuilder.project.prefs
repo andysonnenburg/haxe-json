@@ -1,0 +1,5 @@
+#Tue Feb 09 09:57:20 CST 2010
+eclipse.preferences.version=1
+playerTrustFileCleaned30=true
+com.adobe.flexbuilder.project.flex_sdks=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<sdks>\n  <sdk defaultSDK\="true" location\="/opt/adobe-flex-sdk" name\="Flex 3.4"/>\n  <sdk location\="/home/andy/Adobe_Flex_Builder_Linux/sdks/3.0.0" name\="Flex 3"/>\n  <sdk location\="/home/andy/Adobe_Flex_Builder_Linux/sdks/2.0.1" name\="Flex 2.0.1 Hotfix 3"/>\n</sdks>\n
+flexBuilderVersion=3.0.257568

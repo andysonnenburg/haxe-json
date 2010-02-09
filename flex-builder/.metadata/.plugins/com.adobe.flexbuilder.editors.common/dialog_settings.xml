@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="0" key="com.adobe.flexbuilder.editors.common.last.server.type"/>
+	<item value="false" key="com.adobe.flexbuilder.editors.common.last.apptype"/>
+	<item value="375" key="com.adobe.flexbuilder.help.FlexSDKPreferencePage.columnWidth1"/>
+	<item value="150" key="com.adobe.flexbuilder.help.FlexSDKPreferencePage.columnWidth0"/>
+	<item value="true" key="com.adobe.flexbuilder.editors.common.use.default.location"/>
+	<item value="1" key="com.adobe.flexbuilder.help.FlexSDKPreferencePage.sortColumn"/>
+	<section name="ADD_SDK_DIALOG_SECTION">
+		<item value="531" key="DIALOG_WIDTH"/>
+		<item value="149" key="DIALOG_Y_ORIGIN"/>
+		<item value="191" key="DIALOG_HEIGHT"/>
+		<item value="152" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

@@ -2,7 +2,7 @@ package com.rational.serialization.json;
 
 import com.rational.utils.CharCodes;
 import com.rational.utils.Tools;
-import com.rational.utils.Stream;
+import com.rational.utils.IStream;
 
 using StringTools;
 
@@ -10,12 +10,12 @@ private typedef CC = CharCodes;
 private typedef S = LexerStates;
 private typedef T = Tools;
 
-class Lexer {
-	private var stream:Stream<Int>;
+class Lexer implements IStream<Token> {
+	private var stream:IStream<Int>;
 	private var peeked:Bool;
 	private var token:Null<Token>;
 	
-	public function new(stream:Stream<Int>) {
+	public function new(stream:IStream<Int>) {
 		this.stream = stream;
 		this.peeked = false;
 	}
@@ -38,15 +38,7 @@ class Lexer {
 		pop();
 	}
 	
-	private static inline function safePeek(stream:Stream<Int>):Int {
-		var code;
-		if ((code = stream.peek()) == null) {
-			throw new LexerError("Unexpected end of input");
-		}
-		return code;
-	}
-	
-	private static inline function safePop(stream:Stream<Int>):Int {
+	private static inline function safePop(stream:IStream<Int>):Int {
 		var code;
 		if ((code = stream.pop()) == null) {
 			throw new LexerError("Unexpected end of input");
@@ -69,7 +61,7 @@ class Lexer {
 	
 	private function nextToken():Null<Token> {
 		var state:Int = S.START;
-		var stream:Stream<Int> = this.stream;
+		var stream:IStream<Int> = this.stream;
 		var code:Null<Int>;
 		var buf:StringBuf = null;
 		var hexBuf:StringBuf = null;

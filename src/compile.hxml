@@ -1,2 +1,4 @@
 -swf9 ../out/json.swc
-com.rational.serialization.json.JSON
+-swf-version 9
+com.rational.serialization.json.Parser
+com.rational.serialization.json.Lexer

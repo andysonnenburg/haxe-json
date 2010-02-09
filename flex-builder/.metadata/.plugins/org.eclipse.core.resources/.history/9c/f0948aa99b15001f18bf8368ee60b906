@@ -1,0 +1,13 @@
+package
+{
+	import com.adobe.serialization.json.JSON;
+
+	public final class AS3CoreLibJSON extends JSON
+	{
+		public function AS3CoreLibJSON()
+		{
+			super();
+		}
+		
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowedApplication xmlns="http://www.adobe.com/2006/mxml" creationComplete="profile()">
+	<Script>
+		<![CDATA[
+			import com.rational.serialization.json.JSON;
+			import com.adobe.serialization.json.JSON;
+			private function profile():void {
+				var start:Date, end:Date;
+				start = new Date();
+				com.rational.serialization.json.JSON.decode("{}");
+				end = new Date();
+				haxeJsonResult.text = String(end.milliseconds - start.milliseconds);
+				start = new Date();
+				com.adobe.serialization.json.JSON.decode("{}");
+				end = new Date();
+				as3corelibResult.text = String(end.milliseconds - start.milliseconds);		
+			}
+		]]>
+	</Script>
+	<Label text="haxe-json"/>
+	<Label id="haxeJsonResult"/>
+	<Label text="as3corelib"/>
+	<Label id="as3corelibResult"/>
+</WindowedApplication>

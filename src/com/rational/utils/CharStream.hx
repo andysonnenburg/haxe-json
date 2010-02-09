@@ -1,6 +1,6 @@
 package com.rational.utils;
 
-class CharStream {
+class CharStream implements IStream<Int> {
 	private var string:String;
 	private var index:Int;
 

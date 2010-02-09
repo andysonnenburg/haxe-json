@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowedApplication xmlns="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="profile()">
+	<Script>
+		<![CDATA[
+			private function profile() {
+				
+			}
+		]]>
+	</Script>
+</WindowedApplication>

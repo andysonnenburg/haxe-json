@@ -1,6 +1,6 @@
 package com.rational.utils;
 
-class IterStream<T> {
+class IterStream<T> implements IStream<T> {
 	private var i:Iterator<T>;
 	private var peeked:Bool;
 	private var value:Null<T>;

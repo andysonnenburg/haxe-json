@@ -1,0 +1,1783 @@
+!SESSION 2010-02-09 09:47:41.709 -----------------------------------------------
+eclipse.buildId=M20080221-1800
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86 -data /home/andy/Development/haxe-json/flex-builder
+
+!ENTRY org.eclipse.ui 2 0 2010-02-09 09:47:44.931
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 09:47:44.932
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.actionscript', id='com.adobe.flexbuilder.editors.actionscript.rename.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 09:47:44.932
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomIn'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 09:47:44.932
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomOut'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 09:47:44.932
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.Magnify100'
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 09:51:16.063
+!MESSAGE Unable to find view with id: com.adobe.flexbuilder.editors.mxml.components.ComponentsView, when creating perspective com.adobe.flexbuilder.editors.mxml.ui.perspectives.development
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 09:51:16.064
+!MESSAGE Unable to find view with id: com.adobe.flexbuilder.editors.mxml.states.StatesView, when creating perspective com.adobe.flexbuilder.editors.mxml.ui.perspectives.development
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 09:51:16.065
+!MESSAGE Unable to find view with id: com.adobe.flexbuilder.editors.mxml.inspector.view.PropertiesView, when creating perspective com.adobe.flexbuilder.editors.mxml.ui.perspectives.development
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 09:51:16.102
+!MESSAGE Unable to find Action Set: com.adobe.flexbuilder.zzzz.apollo.ui.export
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 09:56:49.393
+!MESSAGE Invalid preference page path: Cache
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.175
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.185
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.191
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.233
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.244
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.246
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.322
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.323
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.341
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.352
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.384
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.407
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.411
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.412
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.416
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.419
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:13:24.447
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY org.eclipse.jface 4 0 2010-02-09 10:13:26.944
+!MESSAGE Undefined context while filtering dialog/window contexts
+!STACK 0
+org.eclipse.core.commands.common.NotDefinedException: Cannot get the parent identifier from an undefined context. com.adobe.flexbuilder.editors.common.flexEditorScope.design.mxml
+	at org.eclipse.core.commands.contexts.Context.getParentId(Context.java:201)
+	at org.eclipse.jface.bindings.BindingManager.createFilteredContextTreeFor(BindingManager.java:825)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1720)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.addActiveContext(ContextManager.java:96)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:765)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.activateContext(ContextAuthority.java:179)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:88)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:75)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateEditorContext(CodeAndDesignEditor.java:705)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateDesignEditorContext(CodeAndDesignEditor.java:714)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.pageChange(CodeAndDesignEditor.java:538)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.pageChange(MXMLEditor.java:422)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.setActivePage(CodeAndDesignEditor.java:648)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.setActivePage(MXMLEditor.java:487)
+	at com.adobe.flexbuilder.editors.derived.editor.FlexMultiPageEditorPart.createPartControl(FlexMultiPageEditorPart.java:235)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.createPartControl(CodeAndDesignEditor.java:162)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:661)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:426)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:592)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:263)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2739)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2651)
+	at org.eclipse.ui.internal.WorkbenchPage.access$13(WorkbenchPage.java:2643)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2595)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2590)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2574)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2557)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:676)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI.openEditor(FlexProjectUI.java:264)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI.access$2(FlexProjectUI.java:259)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI$1.runInUIThread(FlexProjectUI.java:185)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:94)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:129)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3296)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2974)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2389)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2353)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2219)
+	at org.eclipse.ui.internal.Workbench$4.run(Workbench.java:466)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:289)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:461)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:106)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:169)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:106)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:76)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:363)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:508)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:447)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1173)
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-02-09 10:13:35.808
+!MESSAGE An internal error occurred during: "Building workspace".
+!STACK 0
+java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:632)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:277)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:212)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:205)
+	at com.adobe.flexbuilder.project.sdks.FlexClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:319)
+	at com.adobe.flexbuilder.project.sdks.FlexClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:264)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:332)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:186)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeIntrospection(RuntimeInstance.java:263)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:234)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:81)
+	at flex2.compiler.util.VelocityManager.createEngine(VelocityManager.java:107)
+	at flex2.compiler.util.VelocityManager.getEngine(VelocityManager.java:129)
+	at flex2.compiler.util.VelocityManager.getTemplate(VelocityManager.java:142)
+	at flex2.compiler.util.VelocityManager.getTemplate(VelocityManager.java:137)
+	at flex2.compiler.mxml.InterfaceCompiler.generateSkeleton(InterfaceCompiler.java:697)
+	at flex2.compiler.mxml.InterfaceCompiler.parse2(InterfaceCompiler.java:280)
+	at flex2.compiler.mxml.Compiler.parse2(Compiler.java:129)
+	at flex2.compiler.API.parse2(API.java:2390)
+	at flex2.compiler.API.parse2(API.java:2348)
+	at flex2.compiler.API.batch2(API.java:375)
+	at flex2.compiler.API.batch(API.java:1117)
+	at flex2.compiler.API.compile(API.java:1290)
+	at flex2.tools.oem.Application.compile(Application.java:1077)
+	at flex2.tools.oem.Application.recompile(Application.java:1029)
+
+!ENTRY org.eclipse.osgi 4 0 2010-02-09 10:13:46.409
+!MESSAGE Shutdown error
+!STACK 1
+java.lang.OutOfMemoryError: PermGen space
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:632)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:277)
+	at java.net.URLClassLoader.access$000(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:212)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:205)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:319)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:264)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:332)
+	at org.eclipse.osgi.internal.baseadaptor.StateManager.getStateHelper(StateManager.java:290)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependencies(StartLevelManager.java:576)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.sortByDependency(StartLevelManager.java:557)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.getInstalledBundles(StartLevelManager.java:533)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:285)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:261)
+	at org.eclipse.osgi.framework.internal.core.SystemBundle.suspend(SystemBundle.java:188)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:622)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:525)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:197)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:508)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:447)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1173)
+!SESSION 2010-02-09 10:13:49.664 -----------------------------------------------
+eclipse.buildId=M20080221-1800
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.ui 2 0 2010-02-09 10:13:52.705
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:13:52.705
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.actionscript', id='com.adobe.flexbuilder.editors.actionscript.rename.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:13:52.707
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomIn'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:13:52.707
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomOut'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:13:52.708
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.Magnify100'
+
+!ENTRY org.eclipse.debug.core 4 5012 2010-02-09 10:15:16.517
+!MESSAGE Launch configuration prof at /home/andy/Development/haxe-json/flex-builder/.metadata/.plugins/org.eclipse.debug.core/.launches/prof.launch does not exist.
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.145
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.153
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.159
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.202
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.212
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.214
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.302
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.303
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.324
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.333
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.354
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.405
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.409
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.410
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.415
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.417
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:16:17.429
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY org.eclipse.jface 4 0 2010-02-09 10:16:19.437
+!MESSAGE Undefined context while filtering dialog/window contexts
+!STACK 0
+org.eclipse.core.commands.common.NotDefinedException: Cannot get the parent identifier from an undefined context. com.adobe.flexbuilder.editors.common.flexEditorScope.design.mxml
+	at org.eclipse.core.commands.contexts.Context.getParentId(Context.java:201)
+	at org.eclipse.jface.bindings.BindingManager.createFilteredContextTreeFor(BindingManager.java:825)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1720)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.addActiveContext(ContextManager.java:96)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:765)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.activateContext(ContextAuthority.java:179)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:88)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:75)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateEditorContext(CodeAndDesignEditor.java:705)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateDesignEditorContext(CodeAndDesignEditor.java:714)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.pageChange(CodeAndDesignEditor.java:538)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.pageChange(MXMLEditor.java:422)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.setActivePage(CodeAndDesignEditor.java:648)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.setActivePage(MXMLEditor.java:487)
+	at com.adobe.flexbuilder.editors.derived.editor.FlexMultiPageEditorPart.createPartControl(FlexMultiPageEditorPart.java:235)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.createPartControl(CodeAndDesignEditor.java:162)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:661)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:426)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:592)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:263)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2739)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2651)
+	at org.eclipse.ui.internal.WorkbenchPage.access$13(WorkbenchPage.java:2643)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2595)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2590)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2574)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2557)
+	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:676)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI.openEditor(FlexProjectUI.java:264)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI.access$2(FlexProjectUI.java:259)
+	at com.adobe.flexbuilder.editors.common.ui.project.FlexProjectUI$1.runInUIThread(FlexProjectUI.java:185)
+	at org.eclipse.ui.progress.UIJob$1.run(UIJob.java:94)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:129)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3296)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2974)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2389)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2353)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2219)
+	at org.eclipse.ui.internal.Workbench$4.run(Workbench.java:466)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:289)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:461)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:106)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:169)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:106)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:76)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:363)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:508)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:447)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1173)
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 10:19:44.664
+!MESSAGE Invalid preference page path: Cache
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-02-09 10:27:41.214
+!MESSAGE An internal error occurred during: "Building workspace".
+!STACK 0
+java.lang.OutOfMemoryError: PermGen space
+	at java.lang.String.intern(Native Method)
+	at macromedia.abc.AbcParser.scanCpool(AbcParser.java:198)
+	at macromedia.abc.AbcParser.parseAbc(AbcParser.java:88)
+	at flex2.compiler.abc.Compiler.parse1(Compiler.java:179)
+	at flex2.compiler.API.parse1(API.java:2315)
+	at flex2.compiler.API.parse1(API.java:2268)
+	at flex2.compiler.API.batch2(API.java:369)
+	at flex2.compiler.API.batch(API.java:1117)
+	at flex2.compiler.API.compile(API.java:1290)
+	at flex2.tools.oem.Application.compile(Application.java:1077)
+	at flex2.tools.oem.Application.recompile(Application.java:1029)
+	at flex2.tools.oem.Application.compile(Application.java:681)
+	at flex2.tools.flexbuilder.BuilderApplication.compile(BuilderApplication.java:354)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilder$MyBuilder.mybuild(ASApplicationBuilder.java:271)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilder.build(ASApplicationBuilder.java:122)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilder.build(ASBuilder.java:139)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:73)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(Unknown Source)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(Unknown Source)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:624)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:166)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:197)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:246)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:249)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:334)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:137)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-02-09 10:27:54.201 -----------------------------------------------
+eclipse.buildId=M20080221-1800
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.ui 2 0 2010-02-09 10:27:58.667
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:27:58.667
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.actionscript', id='com.adobe.flexbuilder.editors.actionscript.rename.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:27:58.667
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomIn'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:27:58.667
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomOut'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:27:58.667
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.Magnify100'
+
+!ENTRY org.eclipse.ui 4 4 2010-02-09 10:32:37.841
+!MESSAGE Unable to find Action Set: com.adobe.flexbuilder.zzzz.apollo.ui.export
+
+!ENTRY org.eclipse.jface 2 0 2010-02-09 10:33:08.673
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2010-02-09 10:33:08.673
+!MESSAGE A conflict occurred for ALT+ARROW_DOWN:
+Binding(ALT+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineDown,Move Lines Down,
+		Moves the selected lines down,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+ARROW_DOWN,
+	ParameterizedCommand(Command(org.eclipse.mylyn.tasks.ui.command.goToNextUnread,Go To Next Unread Task,
+		,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.mylyn.internal.tasks.ui.views.TaskListViewCommands$1@1bd5a2c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.mylyn.tasks.ui.views.tasks,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2010-02-09 10:33:08.673
+!MESSAGE A conflict occurred for ALT+ARROW_UP:
+Binding(ALT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineUp,Move Lines Up,
+		Moves the selected lines up,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(ALT+ARROW_UP,
+	ParameterizedCommand(Command(org.eclipse.mylyn.tasks.ui.command.goToPreviousUnread,Go To Previous Unread Task,
+		,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.mylyn.internal.tasks.ui.views.TaskListViewCommands$2@6b2ec8,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.mylyn.tasks.ui.views.tasks,,,system)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:05.858
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:05.952
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:05.968
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.041
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.063
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.072
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.188
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.189
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.216
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.226
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.246
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.307
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.312
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.315
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.321
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.325
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.adobe.flexbuilder.codemodel 4 1 2010-02-09 10:34:06.340
+!MESSAGE Could not decode null
+!STACK 0
+macromedia.abc.DecoderException: Invalid constant type: 29
+	at macromedia.abc.Scanner.scanMultinameConstants(Unknown Source)
+	at macromedia.abc.ConstantPool.scan(Unknown Source)
+	at macromedia.abc.ConstantPool.<init>(Unknown Source)
+	at macromedia.abc.Decoder.<init>(Unknown Source)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.NSAwareDecoder.<init>(NSAwareDecoder.java:42)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.<init>(ABCDecoder.java:168)
+	at com.adobe.flexbuilder.codemodel.internal.parsing.abc.ABCDecoder.decodeABC(ABCDecoder.java:147)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.SWCFileHandler.parseFile(SWCFileHandler.java:211)
+	at com.adobe.flexbuilder.codemodel.internal.resourcehandlers.ResourceHandlerManager.parseFile(ResourceHandlerManager.java:237)
+	at com.adobe.flexbuilder.codemodel.internal.project.Project.parseFile(Project.java:1090)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.reparseSavedFile(ProjectManager.java:773)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:661)
+	at com.adobe.flexbuilder.codemodel.internal.project.ProjectManager.fileChanged(ProjectManager.java:592)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFile(EclipseProjectListener.java:574)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.preloadFiles(EclipseProjectListener.java:602)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.loadProject(EclipseProjectListener.java:728)
+	at com.adobe.flexbuilder.codemodel.internal.project.EclipseProjectListener.registerProject(EclipseProjectListener.java:802)
+	at com.adobe.flexbuilder.editors.common.ui.dialogs.CodeModelProjectLoadDialog$1.run(CodeModelProjectLoadDialog.java:120)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY org.eclipse.jface 4 0 2010-02-09 10:34:08.412
+!MESSAGE Undefined context while filtering dialog/window contexts
+!STACK 0
+org.eclipse.core.commands.common.NotDefinedException: Cannot get the parent identifier from an undefined context. com.adobe.flexbuilder.editors.common.flexEditorScope.design.mxml
+	at org.eclipse.core.commands.contexts.Context.getParentId(Context.java:201)
+	at org.eclipse.jface.bindings.BindingManager.createFilteredContextTreeFor(BindingManager.java:825)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1720)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.addActiveContext(ContextManager.java:96)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:765)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.activateContext(ContextAuthority.java:179)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:88)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:75)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateEditorContext(CodeAndDesignEditor.java:705)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateDesignEditorContext(CodeAndDesignEditor.java:714)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.pageChange(CodeAndDesignEditor.java:538)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.pageChange(MXMLEditor.java:422)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.setActivePage(CodeAndDesignEditor.java:648)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.setActivePage(MXMLEditor.java:487)
+	at com.adobe.flexbuilder.editors.derived.editor.FlexMultiPageEditorPart.createPartControl(FlexMultiPageEditorPart.java:235)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.createPartControl(CodeAndDesignEditor.java:162)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:661)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:426)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:592)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:299)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:179)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:268)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:400)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.presentationSelectionChanged(PartStack.java:843)
+	at org.eclipse.ui.internal.PartStack.access$1(PartStack.java:829)
+	at org.eclipse.ui.internal.PartStack$1.selectPart(PartStack.java:139)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation$1.handleEvent(TabbedStackPresentation.java:131)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:267)
+	at org.eclipse.ui.internal.presentations.util.AbstractTabFolder.fireEvent(AbstractTabFolder.java:276)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder.access$1(DefaultTabFolder.java:1)
+	at org.eclipse.ui.internal.presentations.defaultpresentation.DefaultTabFolder$2.handleEvent(DefaultTabFolder.java:84)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1101)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1125)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1110)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:951)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3227)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:2005)
+	at org.eclipse.swt.custom.CTabFolder$1.handleEvent(CTabFolder.java:316)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1101)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3319)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2971)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2389)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2353)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2219)
+	at org.eclipse.ui.internal.Workbench$4.run(Workbench.java:466)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:289)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:461)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:106)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:169)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:106)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:76)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:363)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:508)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:447)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1173)
+
+!ENTRY org.eclipse.core.jobs 4 2 2010-02-09 10:39:51.965
+!MESSAGE An internal error occurred during: "Building workspace".
+!STACK 0
+java.lang.OutOfMemoryError: PermGen space
+	at sun.misc.Unsafe.defineClass(Native Method)
+	at sun.reflect.ClassDefiner.defineClass(ClassDefiner.java:63)
+	at sun.reflect.MethodAccessorGenerator$1.run(MethodAccessorGenerator.java:399)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.reflect.MethodAccessorGenerator.generate(MethodAccessorGenerator.java:395)
+	at sun.reflect.MethodAccessorGenerator.generateMethod(MethodAccessorGenerator.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:46)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at flex2.compiler.config.ConfigurationBuffer.commitVariable(ConfigurationBuffer.java:694)
+	at flex2.compiler.config.ConfigurationBuffer.commit(ConfigurationBuffer.java:643)
+	at flex2.tools.Compiler.processConfiguration(Compiler.java:667)
+	at flex2.tools.Compiler.processConfiguration(Compiler.java:526)
+	at flex2.tools.oem.internal.OEMUtil.getApplicationConfiguration(OEMUtil.java:235)
+	at flex2.tools.oem.internal.OEMUtil.getApplicationConfiguration(OEMUtil.java:206)
+	at flex2.tools.oem.Application.compile(Application.java:692)
+	at flex2.tools.flexbuilder.BuilderApplication.compile(BuilderApplication.java:354)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilder$MyBuilder.mybuild(ASApplicationBuilder.java:271)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilder.build(ASApplicationBuilder.java:122)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilder.build(ASBuilder.java:139)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:73)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(Unknown Source)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(Unknown Source)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(Unknown Source)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:624)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:166)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:197)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:246)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:249)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:302)
+!SESSION 2010-02-09 10:41:29.000 -----------------------------------------------
+eclipse.buildId=M20080221-1800
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.ui 2 0 2010-02-09 10:41:32.046
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:41:32.046
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.actionscript', id='com.adobe.flexbuilder.editors.actionscript.rename.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:41:32.046
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomIn'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:41:32.046
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.ZoomOut'
+!SUBENTRY 1 org.eclipse.ui 2 0 2010-02-09 10:41:32.046
+!MESSAGE Cannot bind to an undefined command: plug-in='com.adobe.flexbuilder.editors.css', id='com.adobe.flexbuilder.editors.css.design.Magnify100'
+
+!ENTRY org.eclipse.jface 4 0 2010-02-09 10:41:42.176
+!MESSAGE Undefined context while filtering dialog/window contexts
+!STACK 0
+org.eclipse.core.commands.common.NotDefinedException: Cannot get the parent identifier from an undefined context. com.adobe.flexbuilder.editors.common.flexEditorScope.design.mxml
+	at org.eclipse.core.commands.contexts.Context.getParentId(Context.java:201)
+	at org.eclipse.jface.bindings.BindingManager.createFilteredContextTreeFor(BindingManager.java:825)
+	at org.eclipse.jface.bindings.BindingManager.recomputeBindings(BindingManager.java:1720)
+	at org.eclipse.jface.bindings.BindingManager.contextManagerChanged(BindingManager.java:689)
+	at org.eclipse.core.commands.contexts.ContextManager.fireContextManagerChanged(ContextManager.java:152)
+	at org.eclipse.core.commands.contexts.ContextManager.addActiveContext(ContextManager.java:96)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.updateContext(ContextAuthority.java:765)
+	at org.eclipse.ui.internal.contexts.ContextAuthority.activateContext(ContextAuthority.java:179)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:88)
+	at org.eclipse.ui.internal.contexts.ContextService.activateContext(ContextService.java:75)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateEditorContext(CodeAndDesignEditor.java:705)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.activateDesignEditorContext(CodeAndDesignEditor.java:714)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.pageChange(CodeAndDesignEditor.java:538)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.pageChange(MXMLEditor.java:422)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.setActivePage(CodeAndDesignEditor.java:648)
+	at com.adobe.flexbuilder.editors.mxml.MXMLEditor.setActivePage(MXMLEditor.java:487)
+	at com.adobe.flexbuilder.editors.derived.editor.FlexMultiPageEditorPart.createPartControl(FlexMultiPageEditorPart.java:235)
+	at com.adobe.flexbuilder.editors.common.editor.CodeAndDesignEditor.createPartControl(CodeAndDesignEditor.java:162)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:661)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:426)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:592)
+	at org.eclipse.ui.internal.EditorAreaHelper.setVisibleEditor(EditorAreaHelper.java:263)
+	at org.eclipse.ui.internal.EditorManager.setVisibleEditor(EditorManager.java:1405)
+	at org.eclipse.ui.internal.EditorManager$5.runWithException(EditorManager.java:939)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:129)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3296)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2974)
+	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:801)
+	at org.eclipse.ui.internal.Workbench$25.runWithException(Workbench.java:1342)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:129)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3296)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2974)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2309)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2219)
+	at org.eclipse.ui.internal.Workbench$4.run(Workbench.java:466)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:289)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:461)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:106)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:169)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:106)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:76)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:363)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:176)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:508)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:447)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1173)
+
+!ENTRY org.eclipse.jface 2 0 2010-02-09 12:10:43.406
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2010-02-09 12:10:43.406
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)

@@ -1,6 +1,6 @@
 package com.rational.serialization.json;
 
-import com.rational.utils.Stream;
+import com.rational.utils.IStream;
 
 using Reflect;
 using Type;
@@ -10,7 +10,7 @@ private typedef S = ParserStates;
 class Parser {	
 	public function new() {}
 	
-	private static inline function unexpected(stream:Stream<Token>):Void {
+	private static inline function unexpected(stream:IStream<Token>):Void {
 		var token:Token;
 		throw new ParserError(if ((token = stream.peek()) == null) {
 				"Unexpected " + token;
@@ -23,7 +23,7 @@ class Parser {
 		throw new ParserError("Internal error");
 	}
 	
-	public function parse(stream:Stream<Token>, type:Class<Dynamic>):Dynamic {
+	public function parse(stream:IStream<Token>, type:Class<Dynamic>):Dynamic {
 		switch (stream.peek()) {
 			case LEFT_BRACE:
 				stream.skip();
@@ -36,7 +36,7 @@ class Parser {
 		internalError();
 	}
 	
-	private function parseObject<T>(stream:Stream<Token>, type:Class<T>):T {
+	private function parseObject<T>(stream:IStream<Token>, type:Class<T>):T {
 		var state:Int = S.START;
 		var object:T = null;
 		var field:String = null;
@@ -95,7 +95,7 @@ class Parser {
 		internalError();
 	}
 	
-	private function parseArray(stream:Stream<Token>, elementType:Class<Dynamic>):Array<Dynamic> {
+	private function parseArray(stream:IStream<Token>, elementType:Class<Dynamic>):Array<Dynamic> {
 		var array:Array<Dynamic> = [];
 		while (true) {
 			switch (stream.peek()) {

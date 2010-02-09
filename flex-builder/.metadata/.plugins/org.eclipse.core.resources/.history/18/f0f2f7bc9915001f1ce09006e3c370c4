@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowedApplication xmlns="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="profile()">
+	<Script>
+		<![CDATA[
+			import com.rational.serialization.json.JSON;
+			private function profile():void {
+				result.text = JSON.decode("{}");	
+			}
+		]]>
+	</Script>
+	<Label id="result"/>
+</WindowedApplication>

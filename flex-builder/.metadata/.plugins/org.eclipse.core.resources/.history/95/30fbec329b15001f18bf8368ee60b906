@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowedApplication xmlns="http://www.adobe.com/2006/mxml" creationComplete="profile()">
+	<Script>
+		<![CDATA[
+			import com.rational.serialization.json.JSON;
+			private function profile():void {
+				var start:Date = new Date();
+				result.text = JSON.decode("{}");
+				var end:Date = new Date();
+				result.text = String(end.milliseconds - start.milliseconds);
+			}
+		]]>
+	</Script>
+	<Label text="haxe-json"/>
+	<Label id="result"/>
+	<Label text="as3corelib"/>
+</WindowedApplication>

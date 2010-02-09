@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowedApplication xmlns="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="profile()">
+	<Script>
+		<![CDATA[
+			import flash.utils.getTimer;
+			import com.rational.utils.CharStream;
+			import com.adobe.serialization.json.JSONTokenizer;
+			import com.rational.serialization.json.Lexer;
+			import com.rational.serialization.json.JSON;
+			
+			private static const LENGTH:int = 1000;
+			private static const MAX:int = 10000;
+			
+			private function profile():void {
+				var
+					o:SimpleObject,
+					accumulated:int = 0,
+					start:int, end:int,
+					i:int,
+					s:String;
+				const array:Array = new Array(LENGTH);
+				for (i = 0; i < MAX; i += 1) {
+					o = new SimpleObject();
+					o.booleanField = true;
+					o.stringField = "hello, world!";
+					o.numberField = 3.1415;
+					array[i] = o;
+				}
+				s = JSON.encode(array);
+				for (i = 0; i < MAX; i += 1) {
+					start = getTimer();
+					const lexer:Lexer = new Lexer(new CharStream(s));
+					while (lexer.pop() != null) {}
+					end = getTimer();
+					accumulated += end - start;
+				}
+				accumulated = 0;
+				haxeJsonResult.text = String(accumulated);
+				for (i = 0; i < MAX; i += 1) {
+					start = getTimer();
+					const tokenizer:JSONTokenizer = new JSONTokenizer("{}");
+					tokenizer.getNextToken();
+					tokenizer.getNextToken();
+					end = getTimer();
+					accumulated += end - start;
+				}
+				as3corelibResult.text = String(accumulated);		
+			}
+		]]>
+	</Script>
+	<VBox>
+		<Label text="haxe-json"/>
+		<Label id="haxeJsonResult"/>
+		<Label text="as3corelib"/>
+		<Label id="as3corelibResult"/>
+	</VBox>
+</WindowedApplication>
