@@ -28,11 +28,11 @@ private class Var {
 class Macros {
 	private static var macros:Dynamic;
 	private static function __init__():Void {
-		var i = 0...-1;
 		macros = {
 			const: function(args) {
 				var resolve:String -> Dynamic = args.shift();
 				var name:String = cast(args.shift(), String).trim();
+				var i = 0...-1;
 				var macros = {
 					next: function(resolve:String -> Dynamic):String {
 						return Std.string(i.next());

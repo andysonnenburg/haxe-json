@@ -58,7 +58,7 @@ class Tools {
 	}
 #end
 
-	public static inline function stream(string:String):IStream<Int> {
+	public static inline function stream(string:String):CharStream {
 		return new CharStream(string);
 	}
 }

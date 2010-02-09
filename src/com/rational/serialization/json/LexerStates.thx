@@ -4,24 +4,14 @@ $$const(LexerState,
 	START,
 	
 	t,
-	tr,
-	tru,
 	
 	f,
-	fa,
-	fal,
-	fals,
 	
 	n,
-	nu,
-	nul,
 	
 	QUOTATION_MARK,
 	REVERSE_SOLIDUS,
 	UNICODE_ESCAPE,
-	HEX_DIGIT1,
-	HEX_DIGIT2,
-	HEX_DIGIT3,
 	STRING,
 	
 	MINUS,
