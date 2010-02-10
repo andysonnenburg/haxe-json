@@ -100,7 +100,7 @@ class Macros {
 			namedCode("QUOTATION_MARK", "\""),
 			namedCode("REVERSE_SOLIDUS", "\\"),
 			namedCode("SOLIDUS", "/"),
-			namedCode("BACKSPACE", "\x08"),
+			namedCode("BELL", "\x08"),
 			namedCode("FORMFEED", "\x0C"),
 			namedCode("NEWLINE", "\n"),
 			namedCode("CARRIAGE_RETURN", "\r"),

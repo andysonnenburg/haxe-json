@@ -128,7 +128,7 @@ class CharCodes {
 
 	public static inline var SOLIDUS:Int = 47;
 
-	public static inline var BACKSPACE:Int = 8;
+	public static inline var BELL:Int = 8;
 
 	public static inline var FORMFEED:Int = 12;
 

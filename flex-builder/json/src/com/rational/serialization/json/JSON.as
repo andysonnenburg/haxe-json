@@ -1,6 +1,5 @@
 package com.rational.serialization.json {
 	import com.adobe.serialization.json.JSONEncoder;
-	import com.rational.utils.CharStream;
 	
 	public final class JSON {
 		/**
@@ -37,7 +36,7 @@ package com.rational.serialization.json {
 				type = Object;
 			}
 			const parser:Parser = new Parser();
-			return parser.parse(new Lexer(new CharStream(s)), type);
+			return parser.parse(new Lexer(s), type);
 		}
 	}
 }

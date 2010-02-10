@@ -26,12 +26,12 @@ class Tests {
 
 class LexerTestCase extends TestCase {
 	public function assertToken(string:String, token:Token) {
-		var lexer = new Lexer(string.stream());
+		var lexer = new Lexer(string);
 		assertEquals(token, lexer.pop());
 	}
 	
 	public function assertStringTokenValue(string:String, expected:String) {
-		var lexer = new Lexer(string.stream());
+		var lexer = new Lexer(string);
 		switch (lexer.pop()) {
 			case STRING(value): assertEquals(expected, value); 				
 			default: assertTrue(false);
@@ -39,7 +39,7 @@ class LexerTestCase extends TestCase {
 	}
 	
 	public function assertNumberTokenValue(string:String, expected:Float) {
-		var lexer = new Lexer(string.stream());
+		var lexer = new Lexer(string);
 		switch (lexer.pop()) {
 			case NUMBER(value): assertEquals(expected, value); 				
 			default: assertTrue(false);
@@ -47,7 +47,7 @@ class LexerTestCase extends TestCase {
 	}
 	
 	private function assertLexerError(string:String, ?expected:String = null) {
-		var lexer = new Lexer(string.stream());
+		var lexer = new Lexer(string);
 		var erred = false;
 		try {
 			lexer.pop();
@@ -132,7 +132,7 @@ class LexerTestCase extends TestCase {
 		assertStringTokenValue("\"\\u0000\"", "\x00");
 		assertStringTokenValue("\"\\u0001\"", "\x01");
 		assertStringTokenValue("\"\\u000A\"", "\x0A");
-		assertStringTokenValue("\"\\u000F\"", "\x0F");
+		assertStringTokenValue("\"\\u000F\\u000E\"", "\x0F\x0E");
 	}
 	
 	public function testComplexString() {
@@ -176,7 +176,7 @@ class LexerTestCase extends TestCase {
 	}
 	
 	public function testUnclosedString() {
-		assertLexerError("\"123", "Unexpected end of input");
+		assertLexerError("\"123", "Unterminated string literal");
 	}
 
 	public function testIncompleteKeyword() {
