@@ -3,6 +3,7 @@ import com.rational.utils.Stream;
 import com.rational.serialization.json.Lexer;
 import com.rational.serialization.json.LexerError;
 import com.rational.serialization.json.Parser;
+import com.rational.serialization.json.ParserError;
 import com.rational.serialization.json.Token;
 import haxe.unit.TestCase;
 import haxe.unit.TestRunner;
@@ -61,7 +62,7 @@ class LexerTestCase extends TestCase {
 	}
 
 	public function testFailure() {
-		assertLexerError("what?", "Unexpected \"w\"");
+		assertLexerError("tr?", "Unexpected tr?");
 	}
 
 	public function testLeftBrace() {
@@ -142,13 +143,17 @@ class LexerTestCase extends TestCase {
 	public function testZero() {
 		assertNumberTokenValue("0", 0);
 	}
-	
+		
 	public function testIntegral() {
 		assertNumberTokenValue("123", 123);
 	}
 	
 	public function testLeadingZeroFractional() {
 		assertNumberTokenValue("0.123", 0.123);
+	}
+	
+	public function testFractionalDecimalMissing() {
+		assertLexerError("1.", "Unexpected end of input");
 	}
 	
 	public function testIntegralFractional() {
@@ -160,9 +165,15 @@ class LexerTestCase extends TestCase {
 		assertNumberTokenValue("0E11", 0);
 	}
 	
+	public function testScientificExponentError() {
+		assertLexerError("1e", "Unexpected end of input");
+	}
+	
 	public function testIntegralExponential() {
 		assertNumberTokenValue("123e12", 123e12);
 		assertNumberTokenValue("123E13", 123e13);
+		assertNumberTokenValue("123e-12", 123e-12);
+		assertNumberTokenValue("123E-13", 123e-13);
 	}
 	
 	public function testLeadingZeroFractionalExponential() {
@@ -181,6 +192,10 @@ class LexerTestCase extends TestCase {
 
 	public function testIncompleteKeyword() {
 		assertLexerError("tru", "Unexpected end of input");
+	}
+	
+	public function testStringWithInvalidUnicodeEscape() {
+		assertLexerError("\"\\u\"", "Unexpected end of input.  Expecting 4 hex digits after \\u.");
 	}
 }
 
@@ -266,6 +281,11 @@ class ParserTestCase extends TestCase {
 		parser = new Parser();
 	}
 
+	public function testNegativeTopLevelNumber() {
+		var lexer = new Lexer("-97123");
+		assertEquals(-97123, parser.parse(lexer));
+	}
+
 	public function testSimpleObject() {
 		var tokens:Iterable<Token> = [
 			T.LEFT_BRACE,
@@ -339,6 +359,7 @@ class ParserTestCase extends TestCase {
 			T.COLON,
 			T.TRUE,
 			T.RIGHT_BRACE,
+			T.COMMA,
 			T.LEFT_BRACE,
 			T.STRING("numberField"),
 			T.COLON,

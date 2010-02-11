@@ -12,7 +12,7 @@ class Parser {
 	
 	private static inline function unexpected(stream:IStream<Token>):Void {
 		var token:Token;
-		throw new ParserError(if ((token = stream.peek()) == null) {
+		throw new ParserError(if ((token = stream.peek()) != null) {
 				"Unexpected " + token;
 			} else {
 				"Unexpected end of input";
@@ -23,7 +23,10 @@ class Parser {
 		throw new ParserError("Internal error");
 	}
 	
-	public function parse(stream:IStream<Token>, type:Class<Dynamic>):Dynamic {
+	public function parse(stream:IStream<Token>, ?type:Class<Dynamic> = null):Dynamic {
+		if (type == null) {
+			type = Dynamic;
+		}
 		switch (stream.peek()) {
 			case LEFT_BRACE:
 				stream.skip();
@@ -31,6 +34,11 @@ class Parser {
 			case LEFT_BRACKET:
 				stream.skip();
 				return parseArray(stream, type);
+			case NULL: stream.skip(); return null;
+			case TRUE: stream.skip(); return true;
+			case FALSE: stream.skip(); return false;
+			case STRING(value): stream.skip(); return value;
+			case NUMBER(value): stream.skip(); return value;
 			default: unexpected(stream);
 		}
 		internalError();
@@ -96,22 +104,70 @@ class Parser {
 	}
 	
 	private function parseArray(stream:IStream<Token>, elementType:Class<Dynamic>):Array<Dynamic> {
-		var array:Array<Dynamic> = [];
+		var state:Int = S.START;
+		var array:Array<Dynamic> = null;
 		while (true) {
-			switch (stream.peek()) {
-				case NULL: stream.skip(); array.push(null);
-				case TRUE: stream.skip(); array.push(true);
-				case FALSE: stream.skip(); array.push(false);
-				case STRING(value): stream.skip(); array.push(value);
-				case NUMBER(value): stream.skip(); array.push(value);
-				case LEFT_BRACE:
-					stream.skip();
-					array.push(parseObject(stream, elementType));
-				case LEFT_BRACKET:
-					stream.skip();
-					array.push(parseArray(stream, Dynamic));
-				case RIGHT_BRACKET: return array;
-				default: unexpected(stream);
+			switch (state) {
+				case S.START:
+					array = [];
+					switch (stream.peek()) {
+						case NULL:
+							stream.skip();
+							array.push(null);
+						case TRUE:
+							stream.skip();
+							array.push(true);
+						case FALSE:
+							stream.skip();
+							array.push(false);
+						case STRING(value):
+							stream.skip();
+							array.push(value);
+						case NUMBER(value):
+							stream.skip();
+							array.push(value);
+						case LEFT_BRACE:
+							stream.skip();
+							array.push(parseObject(stream, elementType));
+						case LEFT_BRACKET:
+							stream.skip();
+							array.push(parseArray(stream, Dynamic));
+						case RIGHT_BRACKET: return array;
+						default: unexpected(stream);
+					}
+					state = S.VALUE;
+				case S.VALUE:
+					switch (stream.peek()) {
+						case COMMA: stream.skip(); state = S.COMMA;
+						case RIGHT_BRACKET: stream.skip(); return array;
+						default: unexpected(stream);
+					}
+				case S.COMMA:
+					switch (stream.peek()) {
+						case NULL:
+							stream.skip();
+							array.push(null);
+						case TRUE:
+							stream.skip();
+							array.push(true);
+						case FALSE:
+							stream.skip();
+							array.push(false);
+						case STRING(value):
+							stream.skip();
+							array.push(value);
+						case NUMBER(value):
+							stream.skip();
+							array.push(value);
+						case LEFT_BRACE:
+							stream.skip();
+							array.push(parseObject(stream, elementType));
+						case LEFT_BRACKET:
+							stream.skip();
+							array.push(parseArray(stream, Dynamic));
+						default: unexpected(stream);
+					}
+					state = S.VALUE;
 			}
 		}
 		internalError();

@@ -120,6 +120,8 @@ class CharCodes {
 
 	public static inline var MINUS:Int = 45;
 
+	public static inline var PLUS:Int = 43;
+
 	public static inline var PERIOD:Int = 46;
 
 	public static inline var QUOTATION_MARK:Int = 34;

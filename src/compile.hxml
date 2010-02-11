@@ -1,3 +1,4 @@
 -swf9 ../out/json.swc
-com.rational.serialization.json.Parser
-com.rational.serialization.json.Lexer
+com.rational.serialization.json.Decoder
+com.rational.serialization.json.ParserError
+com.rational.serialization.json.LexerError

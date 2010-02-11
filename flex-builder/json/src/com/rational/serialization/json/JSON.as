@@ -1,7 +1,12 @@
 package com.rational.serialization.json {
 	import com.adobe.serialization.json.JSONEncoder;
 	
+	import flash.Boot;
+	import flash.display.MovieClip;
+	
 	public final class JSON {
+		private static const BOOT:Boot = new Boot(new MovieClip());
+		private static const DECODER:Decoder = new Decoder();	
 		/**
 		 * @private
 		 */
@@ -35,8 +40,7 @@ package com.rational.serialization.json {
 			if (!type) {
 				type = Object;
 			}
-			const parser:Parser = new Parser();
-			return parser.parse(new Lexer(s), type);
+			return DECODER.decode(s, type);
 		}
 	}
 }

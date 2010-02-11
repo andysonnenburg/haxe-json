@@ -2,13 +2,18 @@
 <WindowedApplication xmlns="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="profile()">
 	<Script>
 		<![CDATA[
+			import com.rational.serialization.json.Decoder;
 			import flash.utils.getTimer;
 			import com.adobe.serialization.json.JSONTokenizer;
 			import com.rational.serialization.json.Lexer;
-			import com.rational.serialization.json.JSON;
+			import com.adobe.serialization.json.JSON;
 			
-			private static const LENGTH:int = 10000;
-			private static const MAX:int = 1;
+			private static const LENGTH:int = 1000;
+			private static const MAX:int = 5;
+			
+			private function log(s:String):void {
+				logger.text += s + "\n";
+			}
 			
 			private function profile():void {
 				var
@@ -27,35 +32,30 @@
 					array[i] = o;
 				}
 				s = JSON.encode(array);
+				const decoder:Decoder = new Decoder();
 				accumulated = 0;
 				for (i = 0; i < MAX; i += 1) {
 					start = getTimer();
-					lexer = new Lexer(s);
-					for (j = 0; j < LENGTH; j += 1) {
-						lexer.pop();
-					}
+					decoder.decode(s, Object);
 					end = getTimer();
 					accumulated += end - start;
 				}
-				haxeJsonResult.text = String(accumulated);
+				log("HaXe: " + String(accumulated));
 				accumulated = 0;
 				for (i = 0; i < MAX; i += 1) {
 					start = getTimer();
-					const tokenizer:JSONTokenizer = new JSONTokenizer(s);
-					for (j = 0; j < LENGTH; j += 1) {
-						tokenizer.getNextToken();
-					}
+					JSON.decode(s);
 					end = getTimer();
 					accumulated += end - start;
 				}
-				as3corelibResult.text = String(accumulated);	
+				log("as3corelib: " + String(accumulated));
 			}
 		]]>
 	</Script>
-	<VBox>
-		<Label text="haxe-json"/>
-		<Label id="haxeJsonResult"/>
-		<Label text="as3corelib"/>
-		<Label id="as3corelibResult"/>
+	<ApplicationControlBar dock="true">
+		<Button label="Profile" click="profile()"/>
+	</ApplicationControlBar>
+	<VBox width="100%" height="100%">
+		<TextArea id="logger" editable="false" width="100%" height="100%"/>
 	</VBox>
 </WindowedApplication>

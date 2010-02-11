@@ -48,15 +48,6 @@ class Lexer implements IStream<Token> {
 		return code;
 	}
 	
-	private inline function unexpected():Void {
-		var code;
-		throw new LexerError(if ((code = string.charCodeAt(index)) != null) {
-				"Unexpected \"" + string.charAt(index) + "\"";
-			} else {
-				"Unexpected end of input";
-			});
-	}
-	
 	private inline function internalError():Void {
 		throw new LexerError("Internal error");
 	}
@@ -71,19 +62,28 @@ class Lexer implements IStream<Token> {
 		while (true) {
 			switch (state) {
 				case S.START:
-					if ((code = string.charCodeAt(index)) == null) {
-						return null;
-					}
-					switch (code) {
+					switch (code = string.charCodeAt(index)) {
 						case CC.LEFT_BRACE: index++; return Token.LEFT_BRACE;
 						case CC.RIGHT_BRACE: index++; return Token.RIGHT_BRACE;
 						case CC.LEFT_BRACKET: index++; return Token.LEFT_BRACKET;
 						case CC.RIGHT_BRACKET: index++; return Token.RIGHT_BRACKET;
 						case CC.COMMA: index++; return Token.COMMA;
 						case CC.COLON: index++; return Token.COLON;
-						case CC.t: index++; state = S.t;
-						case CC.f: index++; state = S.f;
-						case CC.n: index++; state = S.n;
+						case CC.t:
+							index++;
+							buf = new StringBuf();
+							buf.addChar(CC.t);
+							state = S.t;
+						case CC.f:
+							index++;
+							buf = new StringBuf();
+							buf.addChar(CC.f);
+							state = S.f;
+						case CC.n:
+							index++;
+							buf = new StringBuf();
+							buf.addChar(CC.n);
+							state = S.n;
 						case CC.QUOTATION_MARK:
 							index++;
 							buf = new StringBuf();
@@ -105,31 +105,20 @@ class Lexer implements IStream<Token> {
 								buf = new StringBuf();
 								buf.addChar(code);
 								state = S.INTEGRAL;
-							default: unexpected();
+							default: return null;
 						}
 					}
 				case S.t:
-					char(CC.r);
-					char(CC.u);
-					char(CC.e);
+					(char(CC.r, buf) && char(CC.u, buf) && char(CC.e, buf)) || unexpected(buf);
 					return Token.TRUE;
 				case S.f:
-					char(CC.a);
-					char(CC.l);
-					char(CC.s);
-					char(CC.e);
+					(char(CC.a, buf) && char(CC.l, buf) && char(CC.s, buf) && char(CC.e, buf)) || unexpected(buf);
 					return Token.FALSE;
 				case S.n:
-					char(CC.u);
-					char(CC.l);
-					char(CC.l);
+					(char(CC.u, buf) && char(CC.l, buf) && char(CC.l, buf)) || unexpected(buf);
 					return Token.NULL;
 				case S.MINUS:
-					code = string.charCodeAt(index);
-					if (code == null) {
-						throw new LexerError("Unexpected end of input");
-					}
-					switch (Std.int(code - CC.ZERO)) {
+					switch (Std.int((code = string.charCodeAt(index)) - CC.ZERO)) {
 						case 0:
 							index++;
 							buf.addChar(CC.ZERO);
@@ -138,39 +127,29 @@ class Lexer implements IStream<Token> {
 							index++;
 							buf.addChar(code);
 							state = S.INTEGRAL;
+						default: unexpected(buf);
 					}
-				case S.LEADING_ZERO: state = fractionalOrExponential(buf);
+				case S.LEADING_ZERO:
+					state = fractional(buf) ? S.FRACTIONAL 
+						: exponential(buf) ? S.EXPONENTIAL 
+						: S.NUMBER;
 				case S.INTEGRAL:
-					digits(buf);
-					state = fractionalOrExponential(buf);
-				case S.LEADING_FRACTIONAL:
-					if (!digit(buf)) {
-						unexpected();
-					}
-					state = S.FRACTIONAL;
+					many(digit, buf); 
+					state = fractional(buf) ? S.FRACTIONAL 
+						: exponential(buf) ? S.EXPONENTIAL 
+						: S.NUMBER;
 				case S.FRACTIONAL:
-					digits(buf);
-					state = exponential(buf);
-				case S.LEADING_EXPONENTIAL:
-					if (!digit(buf)) {
-						unexpected();
-					}
-					state = S.EXPONENTIAL;
+					some(digit, buf) || unexpected(buf);
+					state = exponential(buf) ? S.EXPONENTIAL : S.NUMBER;
 				case S.EXPONENTIAL:
-					digits(buf);
+					char(CC.PLUS, buf) || char(CC.MINUS, buf);
+					some(digit, buf) || unexpected(buf);
 					state = S.NUMBER;
 				case S.NUMBER: return Token.NUMBER(Std.parseFloat(buf.toString()));
 				default: internalError();
 			}
 		}
 		internalError();
-	}
-	
-	private inline function char(code:Int):Void {
-		if (string.charCodeAt(index) != code) {
-			unexpected();
-		}
-		index++;
 	}
 	
 	private inline function quotedString(buf:StringBuf):Void {
@@ -202,7 +181,7 @@ class Lexer implements IStream<Token> {
 		var nextSubstringStartPosition:Int = 0;
 		var len:Int = input.length;
 		do {
-			backslashIndex = input.indexOf('\\', nextSubstringStartPosition);
+			backslashIndex = input.indexOf("\\", nextSubstringStartPosition);
 			if (backslashIndex >= 0) {
 				buf.addSub(input, nextSubstringStartPosition, backslashIndex - nextSubstringStartPosition);
 				nextSubstringStartPosition = backslashIndex + 2;
@@ -216,17 +195,16 @@ class Lexer implements IStream<Token> {
 					case CC.r: buf.addChar(CC.CARRIAGE_RETURN);
 					case CC.t: buf.addChar(CC.HORIZONTAL_TAB);	
 					
-					case CC.u:
-						var hexBuf:StringBuf = new StringBuf();
-						
+					case CC.u:						
 						if (nextSubstringStartPosition + 4 > len) {
-							new LexerError("Unexpected end of input.  Expecting 4 hex digits after \\u.");
+							throw new LexerError("Unexpected end of input.  Expecting 4 hex digits after \\u.");
 						}
 						
+						var hexBuf:StringBuf = new StringBuf();
 						for (i in nextSubstringStartPosition...nextSubstringStartPosition + 4) {
 							var possibleHexCharCode:Int = input.charCodeAt(i);
 							if (!isHexDigit(possibleHexCharCode)) {
-								new LexerError("Excepted a hex digit, but found: " + input.charAt(i));
+								throw new LexerError("Excepted a hex digit, but found: " + input.charAt(i));
 							}
 							
 							hexBuf.addChar(possibleHexCharCode);
@@ -257,48 +235,37 @@ class Lexer implements IStream<Token> {
 		return code >= CC.ZERO && code <= CC.NINE;
 	}
 	
-	private function fractionalOrExponential(buf:StringBuf):Int {
-		var code:Null<Int> = string.charCodeAt(index);
-		if (code == null) {
-			return S.NUMBER;
-		}
-		switch (code) {
-			case CC.PERIOD:
-				index++;
-				buf.addChar(CC.PERIOD);
-				return S.LEADING_FRACTIONAL;
-			case CC.e, CC.E:
-				index++;
-				buf.addChar(CC.e);
-				return S.LEADING_EXPONENTIAL;
-			default: return S.NUMBER;
-		}
-		internalError();
+	private inline function fractional(buf:StringBuf):Bool {
+		return char(CC.PERIOD, buf);
 	}
 	
-	private function exponential(buf:StringBuf):Int {
-		var code:Null<Int> = string.charCodeAt(index);
-		if (code == null) {
-			return S.NUMBER;
-		}
-		switch (code) {
-			case CC.e, CC.E:
-				index++;
-				buf.addChar(CC.e);
-				return S.LEADING_EXPONENTIAL;
-			default: return S.NUMBER;
-		}
+	private inline function exponential(buf:StringBuf):Bool {
+		return char(CC.e, buf) || char(CC.E, buf);
 	}
 	
-	private inline function digits(buf:StringBuf):Void {
-		while (digit(buf)) {}
+	private inline function some(f:StringBuf -> Bool, buf:StringBuf):Bool {
+		return f(buf) && many(f, buf);
 	}
-		
-	private function digit(buf:StringBuf):Bool {
-		var code:Null<Int> = string.charCodeAt(index);
-		if (code == null) {
+	
+	private inline function many(f:StringBuf -> Bool, buf:StringBuf):Bool {
+		while (f(buf)) {}
+		return true;
+	}
+	
+	private function char(code:Int, buf:StringBuf):Bool {
+		if (string.charCodeAt(index) != code) {
 			return false;
-		}		
+		}
+		index++;
+		buf.addChar(code);
+		return true;
+	}
+	
+	private function digit(buf:StringBuf):Bool {
+		var code:Null<Int>;
+		if ((code = string.charCodeAt(index)) == null) {
+			return false;
+		}
 		switch (Std.int(code - CC.ZERO)) {
 			case 0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
 				index++;
@@ -317,5 +284,15 @@ class Lexer implements IStream<Token> {
 					break;
 			}
 		}
+	}
+	
+	private inline function unexpected(buf:StringBuf):Bool {
+		var code:Null<Int>;
+		if ((code = string.charCodeAt(index++)) == null) {
+			throw new LexerError("Unexpected end of input");
+		}
+		buf.addChar(code);
+		throw new LexerError("Unexpected " + buf.toString());
+		return true;
 	}
 }

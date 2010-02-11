@@ -96,6 +96,7 @@ class Macros {
 			namedCode("COMMA", ","),
 			namedCode("COLON", ":"),
 			namedCode("MINUS", "-"),
+			namedCode("PLUS", "+"),
 			namedCode("PERIOD", "."),
 			namedCode("QUOTATION_MARK", "\""),
 			namedCode("REVERSE_SOLIDUS", "\\"),
