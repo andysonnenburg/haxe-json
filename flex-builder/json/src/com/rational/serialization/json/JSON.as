@@ -7,7 +7,7 @@ package com.rational.serialization.json {
 	use namespace json_internal;
 	
 	public final class JSON {
-		private static const boot:Boot = new Boot(new MovieClip());
+		new Boot(new MovieClip());
 		private static const decoder_:Decoder = new Decoder();
 		
 		/**

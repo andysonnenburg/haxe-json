@@ -1,6 +1,7 @@
 package com.rational.serialization.json;
 
 #if flash
+import com.rational.utils.IDescribeTypeCacheRecord;
 import com.rational.utils.DescribeTypeCache;
 import com.rational.utils.DescribeTypeTools;
 import flash.Error;
@@ -9,6 +10,19 @@ import flash.xml.XML;
 import flash.xml.XMLList;
 
 using Type;
+
+private typedef Cache = TypedDictionary<String, Bool>;
+
+class Record implements IDescribeTypeCacheRecord {
+	public var typeDescription(default, null):XML;
+	public var cache(default, null):Cache; 
+	public function new() {}
+	public function init(typeDescription:XML) {
+		this.typeDescription = typeDescription;
+		cache = new Cache();
+	}
+}
+
 #end
 
 class ParserTools {
@@ -21,13 +35,12 @@ class ParserTools {
 #end
 
 #if flash
-	private static var typeCache:DescribeTypeCache;
+	private static var typeCache:DescribeTypeCache<Record>;
 	private static function __init__() {
-		typeCache = new DescribeTypeCache();
+		typeCache = new DescribeTypeCache<Record>(Record);
 	}
 	
-	public static function isWriteProperty_(value:Dynamic, name:String):Bool {
-		var typeDescription:XML = typeCache.describeType(value);
+	public static function isWriteProperty_(typeDescription:XML, name:String):Bool {
 		var names:XMLList = typeDescription.elements("variable").attribute("name");
 		for (i in 0...names.length()) {
 			if (names[i].toString() == name) {
@@ -51,7 +64,7 @@ class ParserTools {
 	}
 	
 	public static function propertyType_(value:Dynamic, name:String):Class<Dynamic> {
-		var typeDescription:XML = typeCache.describeType(value);
+		var typeDescription:XML = typeCache.describeType(value).typeDescription;
 		var variables:XMLList = typeDescription.elements("variable");
 		for (i in 0...variables.length()) {
 			var variable:XML;
@@ -73,7 +86,7 @@ class ParserTools {
 	}
 	
 	public static function propertyElementType_(value:Dynamic, name:String):Class<Dynamic> {
-		var typeDescription:XML = typeCache.describeType(value);
+		var typeDescription:XML = typeCache.describeType(value).typeDescription;
 		var variables:XMLList = typeDescription.elements("variable");
 		for (i in 0...variables.length()) {
 			var variable:XML;
@@ -104,7 +117,14 @@ class ParserTools {
 #end
 	public static inline function isWriteProperty(value:Dynamic, name:String):Bool {
 #if flash
-		return isWriteProperty_(value, name);	
+		var record:Record = typeCache.describeType(value);
+		var cache:Cache = record.cache;
+		var result:Null<Bool>;
+		if ((result = cache.get(name)) == null) {
+			result = isWriteProperty_(record.typeDescription, name);
+			cache.set(name, result);
+		}
+		return result;
 #else
 		return true;
 #end
