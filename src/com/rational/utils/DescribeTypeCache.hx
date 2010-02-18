@@ -7,13 +7,13 @@ import flash.xml.XMLList;
 
 using Type;
 
-class DescribeTypeCache<T : IDescribeTypeCacheRecord> {
+class DescribeTypeCache<T> {
 	
-	private var recordType:Class<T>;
+	private var factory:XML -> T;
 	private var recordCache:TypedDictionary<String, T>;
 
-	public function new(recordType:Class<T>) {
-		this.recordType = recordType;
+	public function new(factory:XML -> T) {
+		this.factory = factory;
 		recordCache = new TypedDictionary<String, T>();
 	}
 
@@ -24,8 +24,7 @@ class DescribeTypeCache<T : IDescribeTypeCacheRecord> {
 			return record;
 		}
 		var typeDescription:XML = DescribeTypeTools.describeType(value);
-		record = recordType.createInstance([]);
-		record.init(typeDescription);
+		record = factory(typeDescription);
 		recordCache.set(className, record);
 		return record;
 	}		

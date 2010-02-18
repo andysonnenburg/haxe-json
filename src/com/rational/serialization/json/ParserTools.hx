@@ -1,7 +1,6 @@
 package com.rational.serialization.json;
 
 #if flash
-import com.rational.utils.IDescribeTypeCacheRecord;
 import com.rational.utils.DescribeTypeCache;
 import com.rational.utils.DescribeTypeTools;
 import flash.Error;
@@ -13,13 +12,16 @@ using Type;
 
 private typedef Cache = TypedDictionary<String, Bool>;
 
-class Record implements IDescribeTypeCacheRecord {
+class Record {
 	public var typeDescription(default, null):XML;
 	public var cache(default, null):Cache; 
-	public function new() {}
-	public function init(typeDescription:XML) {
+	public function new(typeDescription:XML) {
 		this.typeDescription = typeDescription;
 		cache = new Cache();
+	}
+	
+	public static function newInstance(typeDescription:XML) {
+		return new Record(typeDescription);
 	}
 }
 
@@ -37,7 +39,7 @@ class ParserTools {
 #if flash
 	private static var typeCache:DescribeTypeCache<Record>;
 	private static function __init__() {
-		typeCache = new DescribeTypeCache<Record>(Record);
+		typeCache = new DescribeTypeCache<Record>(Record.newInstance);
 	}
 	
 	public static function isWriteProperty_(typeDescription:XML, name:String):Bool {
