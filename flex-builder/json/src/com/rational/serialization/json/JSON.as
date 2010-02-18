@@ -4,18 +4,28 @@ package com.rational.serialization.json {
 	import flash.Boot;
 	import flash.display.MovieClip;
 	
+	use namespace json_internal;
+	
 	public final class JSON {
-		private static const BOOT:Boot = new Boot(new MovieClip());
-		private static const DECODER:Decoder = new Decoder();	
+		private static const boot:Boot = new Boot(new MovieClip());
+		private static const decoder_:Decoder = new Decoder();
+		
 		/**
 		 * @private
 		 */
-		public function JSON() {
+		public function JSON(_:Private) {
 			throw new Error("private");
 		}
 		
 		/**
-		 * Encodes a object into a JSON string.
+		 * @private
+		 */
+		json_internal static function get decoder():Decoder {
+			return decoder_;
+		}
+		
+		/**
+		 * Encodes an object into a JSON string.
 		 *
 		 * @param o The object to create a JSON string for
 		 * @return the JSON string representing o
@@ -37,10 +47,9 @@ package com.rational.serialization.json {
 		 * @tiptext
 		 */
 		public static function decode(s:String, type:Class=null):* {
-			if (!type) {
-				type = Object;
-			}
-			return DECODER.decode(s, type);
+			return decoder.decode(s, type);
 		}
 	}
 }
+
+class Private {}

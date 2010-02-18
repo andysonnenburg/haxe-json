@@ -22,7 +22,7 @@ class Lexer implements IStream<Token> {
 		peeked = false;
 	}
 	
-	public function peek():Null<Token> {
+	public inline function peek():Null<Token> {
 		if (!peeked) {
 			token = nextToken();
 			peeked = true;
@@ -30,14 +30,19 @@ class Lexer implements IStream<Token> {
 		return token;
 	}
 	
-	public function pop():Null<Token> {
+	public inline function pop():Null<Token> {
 		peek();
 		peeked = false;
 		return token;
 	}
 	
-	public function skip():Void {
+	public inline function skip():Void {
 		pop();
+	}
+	
+	public inline function isEmpty():Bool {
+		skipWhitespace();
+		return !peeked && index >= string.length;
 	}
 	
 	private inline function safePop(string:String):Int {

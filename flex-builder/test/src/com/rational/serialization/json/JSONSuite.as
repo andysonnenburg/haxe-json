@@ -6,5 +6,6 @@ package com.rational.serialization.json {
 		public var parserTestCase:ParserTestCase;
 		public var jsonTestCase:JSONTestCase;
 		public var jsonTest:JSONTest;
+		public var randomJsonTestSuite:RandomJSONTestSuite;
 	}
 }

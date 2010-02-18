@@ -7,6 +7,8 @@
 			import com.adobe.serialization.json.JSONTokenizer;
 			import com.rational.serialization.json.Lexer;
 			import com.adobe.serialization.json.JSON;
+			import com.rational.serialization.json.JSON;
+			import com.rational.serialization.json.json_internal;
 			
 			private static const LENGTH:int = 1000;
 			private static const MAX:int = 5;
@@ -31,12 +33,11 @@
 					o.numberField = 3.14;
 					array[i] = o;
 				}
-				s = JSON.encode(array);
-				const decoder:Decoder = new Decoder();
+				s = com.adobe.serialization.json.JSON.encode(array);
 				accumulated = 0;
 				for (i = 0; i < MAX; i += 1) {
 					start = getTimer();
-					decoder.decode(s, Object);
+					com.rational.serialization.json.JSON.decode(s);
 					end = getTimer();
 					accumulated += end - start;
 				}
@@ -44,7 +45,7 @@
 				accumulated = 0;
 				for (i = 0; i < MAX; i += 1) {
 					start = getTimer();
-					JSON.decode(s);
+					com.adobe.serialization.json.JSON.decode(s);
 					end = getTimer();
 					accumulated += end - start;
 				}

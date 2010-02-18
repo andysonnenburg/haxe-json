@@ -4,10 +4,11 @@ import com.rational.utils.IStream;
 
 using Reflect;
 using Type;
+using com.rational.serialization.json.ParserTools;
 
 private typedef S = ParserStates;
 
-class Parser {	
+class Parser {
 	public function new() {}
 	
 	private static inline function unexpected(stream:IStream<Token>):Void {
@@ -25,23 +26,27 @@ class Parser {
 	
 	public function parse(stream:IStream<Token>, ?type:Class<Dynamic> = null):Dynamic {
 		if (type == null) {
-			type = Dynamic;
+			type = ParserTools.Object;
 		}
+		var result:Dynamic;
 		switch (stream.peek()) {
 			case LEFT_BRACE:
 				stream.skip();
-				return parseObject(stream, type);
+				result = parseObject(stream, type);
 			case LEFT_BRACKET:
 				stream.skip();
-				return parseArray(stream, type);
-			case NULL: stream.skip(); return null;
-			case TRUE: stream.skip(); return true;
-			case FALSE: stream.skip(); return false;
-			case STRING(value): stream.skip(); return value;
-			case NUMBER(value): stream.skip(); return value;
+				result = parseArray(stream, type);
+			case NULL: stream.skip(); result = null;
+			case TRUE: stream.skip(); result = true;
+			case FALSE: stream.skip(); result = false;
+			case STRING(value): stream.skip(); result = value;
+			case NUMBER(value): stream.skip(); result = value;
 			default: unexpected(stream);
 		}
-		internalError();
+		if (!stream.isEmpty()) {
+			throw new ParserError("Expected end of stream");
+		}
+		return result;
 	}
 	
 	private function parseObject<T>(stream:IStream<Token>, type:Class<T>):T {
@@ -69,17 +74,41 @@ class Parser {
 					}
 				case S.COLON:
 					switch (stream.peek()) {
-						case NULL: stream.skip(); object.setField(field, null);
-						case TRUE: stream.skip(); object.setField(field, true);
-						case FALSE: stream.skip(); object.setField(field, false);
-						case STRING(value): stream.skip(); object.setField(field, value);
-						case NUMBER(value): stream.skip(); object.setField(field, value);
+						case NULL:
+							stream.skip();
+							if (object.isWriteProperty(field)) {
+								object.setField(field, null);
+							}
+						case TRUE:
+							stream.skip();
+							if (object.isWriteProperty(field)) {
+								object.setField(field, true);
+							}
+						case FALSE:
+							stream.skip();
+							if (object.isWriteProperty(field)) {
+								object.setField(field, false);
+							}
+						case STRING(value):							
+							stream.skip();
+							if (object.isWriteProperty(field)) {
+								object.setField(field, value);
+							}
+						case NUMBER(value):							
+							stream.skip();
+							if (object.isWriteProperty(field)) {
+								object.setField(field, value);
+							}
 						case LEFT_BRACE:
 							stream.skip();
-							object.setField(field, parseObject(stream, fieldType(object, field)));
+							if (object.isWriteProperty(field)) {
+								object.setField(field, parseObject(stream, object.propertyType(field)));
+							}
 						case LEFT_BRACKET:
 							stream.skip();
-							object.setField(field, parseArray(stream, fieldElementType(object, field)));
+							if (object.isWriteProperty(field)) {
+								object.setField(field, parseArray(stream, object.propertyElementType(field)));
+							}
 						default: unexpected(stream);
 					}
 					state = S.VALUE;
@@ -131,7 +160,7 @@ class Parser {
 							array.push(parseObject(stream, elementType));
 						case LEFT_BRACKET:
 							stream.skip();
-							array.push(parseArray(stream, Dynamic));
+							array.push(parseArray(stream, ParserTools.Object));
 						case RIGHT_BRACKET: return array;
 						default: unexpected(stream);
 					}
@@ -164,28 +193,12 @@ class Parser {
 							array.push(parseObject(stream, elementType));
 						case LEFT_BRACKET:
 							stream.skip();
-							array.push(parseArray(stream, Dynamic));
+							array.push(parseArray(stream, ParserTools.Object));
 						default: unexpected(stream);
 					}
 					state = S.VALUE;
 			}
 		}
 		internalError();
-	}
-	
-	private static inline function fieldType(object:Dynamic, name:String):Class<Dynamic> {
-#if flash		
-		return com.rational.utils.DescribeTypeTools.fieldType(object, name);
-#else
-		return Dynamic;
-#end
-	}
-	
-		private static inline function fieldElementType(object:Dynamic, name:String):Class<Dynamic> {
-#if flash		
-		return com.rational.utils.DescribeTypeTools.fieldElementType(object, name);
-#else
-		return Dynamic;
-#end
-	}
+	}	
 }

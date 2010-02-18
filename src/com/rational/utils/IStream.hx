@@ -4,5 +4,6 @@ interface IStream<T> {
 	function peek():Null<T>;
 	function pop():Null<T>;
 	function skip():Void;
+	function isEmpty():Bool;
 }
 

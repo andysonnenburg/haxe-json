@@ -20,5 +20,9 @@ package com.rational.serialization.json {
 		public final function skip():void {
 			index_++;
 		}
+		
+		public final function isEmpty():Boolean {
+			return index_ >= array_.length;
+		}
 	}
 }

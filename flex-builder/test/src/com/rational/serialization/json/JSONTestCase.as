@@ -2,6 +2,12 @@ package com.rational.serialization.json {
 	import org.flexunit.Assert;
 	
 	public final class JSONTestCase {
+		
+		[Test(description="This tests for a private constructor", expects="Error")]
+		public final function testPrivateConstructor():void {
+			new JSON(null);
+		}
+		
 		[Test(description="This tests null array decoding")]
 		public final function testNullArray():void {
 			const result:Array = JSON.decode("[null]");
@@ -25,6 +31,14 @@ package com.rational.serialization.json {
 		[Test(description="This tests for parsing of top level negative integers")]
 		public final function testNonTopLevel():void {
 			Assert.assertEquals(-97123, JSON.decode("-97123"));
+		}
+		
+		[Test(description="This tests for date serialization")]
+		public final function testDate():void {
+			const now:Date = new Date();
+			const other:Date = JSON.decode(JSON.encode(now), Date)
+			Assert.assertEquals(now.time, other.time);
+			Assert.assertTrue(other is Date);
 		}
 	}
 }

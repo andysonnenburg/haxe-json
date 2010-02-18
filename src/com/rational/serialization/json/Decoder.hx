@@ -6,7 +6,7 @@ class Decoder {
 		parser = new Parser();
 	}
 	
-	public function decode(string:String, type:Class<Dynamic>):Dynamic {
+	public function decode(string:String, ?type:Class<Dynamic> = null):Dynamic {
 		return parser.parse(new Lexer(string), type);
 	}
 }

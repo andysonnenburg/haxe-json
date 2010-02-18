@@ -1,7 +1,14 @@
 using StringTools;
 
+class Test implements Dynamic<String> {
+	public function new() {}
+	private function resolve(name:String):Dynamic {
+		trace("__resolve called for field " + name);
+	}
+}
+
 class Traces {
 	public static function main():Void {
-		trace("\n".charCodeAt(0).hex(4));
+		trace(new Test().testFieldAccess);
 	}
 }

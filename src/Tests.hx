@@ -8,6 +8,7 @@ import com.rational.serialization.json.Token;
 import haxe.unit.TestCase;
 import haxe.unit.TestRunner;
 
+using Type;
 using com.rational.utils.Tools;
 
 private typedef T = Token;
@@ -393,4 +394,38 @@ class ParserTestCase extends TestCase {
 		assertEquals("goodbye, cruel world!", simple1.stringField);
 		assertEquals(7.3, simple1.numberField);
 	}
+
+	public function testWhitespace() {
+		var n:Dynamic = parser.parse(new Lexer(" 1 "));
+		assertEquals(1, n);
+		n = parser.parse(new Lexer("\t2\t"));
+		assertEquals(2, n);
+		n = parser.parse(new Lexer(" [ null, true, false, 100, -100, \"test\", { \"foo\": \"bar\" } ] "));
+		assertEquals(null, n[0]);
+	}
+	
+#if flash
+	private static inline var Date_:Class<Dynamic> = (untyped __global__["Date"]);
+	
+	public function testDate() {
+		var tokens:Iterable<Token> = [
+			T.LEFT_BRACE,
+			T.STRING("day"),
+			T.COLON,
+			T.NUMBER(31),
+			T.RIGHT_BRACE
+		];
+		var date:Dynamic = parser.parse(new IterStream<Token>(tokens), Date_);
+		assertTrue(31 != date.day);
+		tokens = [
+			T.LEFT_BRACE,
+			T.STRING("time"),
+			T.COLON,
+			T.NUMBER(31),
+			T.RIGHT_BRACE
+		];
+		date = parser.parse(new IterStream<Token>(tokens), Date_);
+		assertTrue(31 == date.time);
+	}
+#end
 }

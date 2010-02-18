@@ -32,4 +32,8 @@ class IterStream<T> implements IStream<T> {
 		}
 		peeked = false;
 	}
+	
+	public inline function isEmpty():Bool {
+		return !i.hasNext();
+	}
 }
