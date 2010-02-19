@@ -2,3 +2,6 @@
 com.rational.serialization.json.Decoder
 com.rational.serialization.json.ParserError
 com.rational.serialization.json.LexerError
+--next
+-as3 as3
+com.rational.serialization.json.Decoder

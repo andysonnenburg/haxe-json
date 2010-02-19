@@ -23,15 +23,11 @@ class Parser {
 			}); 
 	}
 	
-	private static inline function internalError():Void {
-		throw new ParserError("Internal error");
-	}
-	
 	public function parse(stream:IStream<Token>, ?type:Class<Dynamic> = null):Dynamic {
 		if (type == null) {
 			type = Record.objectType;
 		}
-		var result:Dynamic;
+		var result:Dynamic = null;
 		switch (stream.peek()) {
 			case LEFT_BRACE:
 				stream.skip();
@@ -126,10 +122,10 @@ class Parser {
 							state = S.NAME;
 						default: unexpected(stream);
 					}
-				default: internalError();
+				default: throw new ParserError("Internal error");
 			}
 		} while (true);
-		internalError();
+		throw new ParserError("Internal error");
 	}
 	
 	private function parseArray(stream:IStream<Token>, elementRecord:Record<Dynamic>):Array<Dynamic> {
@@ -199,6 +195,6 @@ class Parser {
 					state = S.VALUE;
 			}
 		} while (true);
-		internalError();
+		throw new ParserError("Internal error");
 	}	
 }

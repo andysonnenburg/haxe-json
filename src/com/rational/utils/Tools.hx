@@ -9,6 +9,8 @@ using neko.io.File;
 using neko.io.Path;
 #end
 
+using Reflect;
+
 private typedef L = Lambda;
 
 class Tools {
@@ -41,6 +43,14 @@ class Tools {
 		return (untyped __global__["parseInt"])(x, 16);
 #else
 		return Std.parseInt("0x" + x);
+#end
+	}
+	
+	public static inline function parseFloat(x:String):Float {
+#if flash
+		return (untyped __global__["parseFloat"])(x);
+#else
+		return Std.parseFloat(x);
 #end
 	}
 

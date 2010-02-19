@@ -53,10 +53,6 @@ class Lexer implements IStream<Token> {
 		return code;
 	}
 	
-	private inline function internalError():Void {
-		throw new LexerError("Internal error");
-	}
-	
 	private function nextToken():Null<Token> {
 		var state:Int = S.START;
 		var string:String = this.string;
@@ -150,11 +146,11 @@ class Lexer implements IStream<Token> {
 					char(CC.PLUS, buf) || char(CC.MINUS, buf);
 					some(digit, buf) || unexpected(buf);
 					state = S.NUMBER;
-				case S.NUMBER: return Token.NUMBER(Std.parseFloat(buf.toString()));
-				default: internalError();
+				case S.NUMBER: return Token.NUMBER(T.parseFloat(buf.toString()));
+				default: throw new LexerError("Internal error");
 			}
 		} while (true);
-		internalError();
+		throw new LexerError("Internal error");
 	}
 	
 	private inline function quotedString(buf:StringBuf):Void {
