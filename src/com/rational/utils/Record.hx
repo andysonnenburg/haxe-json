@@ -3,7 +3,6 @@ package com.rational.utils;
 #if flash
 import com.rational.utils.DescribeTypeTools;
 import flash.Error;
-import flash.utils.TypedDictionary;
 import flash.xml.XML;
 import flash.xml.XMLList;
 #end
