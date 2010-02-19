@@ -135,7 +135,7 @@ class Parser {
 	private function parseArray(stream:IStream<Token>, elementRecord:Record<Dynamic>):Array<Dynamic> {
 		var state:Int = S.START;
 		var array:Array<Dynamic> = null;
-		while (true) {
+		do {
 			switch (state) {
 				case S.START:
 					array = [];
@@ -198,7 +198,7 @@ class Parser {
 					}
 					state = S.VALUE;
 			}
-		}
+		} while (true);
 		internalError();
 	}	
 }

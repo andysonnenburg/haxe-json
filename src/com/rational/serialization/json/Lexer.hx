@@ -64,7 +64,7 @@ class Lexer implements IStream<Token> {
 		var buf:StringBuf = null;
 		var hexBuf:StringBuf = null;
 		skipWhitespace();
-		while (true) {
+		do {
 			switch (state) {
 				case S.START:
 					switch (code = string.charCodeAt(index)) {
@@ -153,7 +153,7 @@ class Lexer implements IStream<Token> {
 				case S.NUMBER: return Token.NUMBER(Std.parseFloat(buf.toString()));
 				default: internalError();
 			}
-		}
+		} while (true);
 		internalError();
 	}
 	
