@@ -19,12 +19,11 @@ class DescribeTypeCache<T> {
 
 	public function describeType(type:Class<Dynamic>):T {
 		var className:String = DescribeTypeTools.getQualifiedClassName(type);
-		var record:T;
-		if ((record = recordCache.get(className)) != null) {
-			return record;
+		if (recordCache.exists(className)) {
+			return recordCache.get(className);
 		}
 		var typeDescription:XML = DescribeTypeTools.describeType(type);
-		record = factory(type, typeDescription);
+		var record:T = factory(type, typeDescription);
 		recordCache.set(className, record);
 		return record;
 	}		
