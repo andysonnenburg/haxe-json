@@ -1,10 +1,13 @@
 package com.rational.serialization.json;
 
+import com.rational.utils.IProperty;
 import com.rational.utils.IStream;
+import com.rational.utils.Record;
 
 using Reflect;
 using Type;
 using com.rational.serialization.json.ParserTools;
+using com.rational.utils.PropertyTools;
 
 private typedef S = ParserStates;
 
@@ -26,16 +29,16 @@ class Parser {
 	
 	public function parse(stream:IStream<Token>, ?type:Class<Dynamic> = null):Dynamic {
 		if (type == null) {
-			type = ParserTools.Object;
+			type = Record.objectType;
 		}
 		var result:Dynamic;
 		switch (stream.peek()) {
 			case LEFT_BRACE:
 				stream.skip();
-				result = parseObject(stream, type);
+				result = parseObject(stream, type.getRecord());
 			case LEFT_BRACKET:
 				stream.skip();
-				result = parseArray(stream, type);
+				result = parseArray(stream, type.getRecord());
 			case NULL: stream.skip(); result = null;
 			case TRUE: stream.skip(); result = true;
 			case FALSE: stream.skip(); result = false;
@@ -49,7 +52,7 @@ class Parser {
 		return result;
 	}
 	
-	private function parseObject<T>(stream:IStream<Token>, type:Class<T>):T {
+	private function parseObject<T>(stream:IStream<Token>, record:Record<T>):T {
 		var state:Int = S.START;
 		var object:T = null;
 		var field:String = null;
@@ -57,11 +60,7 @@ class Parser {
 		while (true) {
 			switch (state) {
 				case S.START:
-#if flash
-					object = type.createInstance([]);
-#else
-					object = type.createEmptyInstance();
-#end
+					object = record.createInstance();
 					switch (stream.peek()) {
 						case STRING(value): stream.skip(); field = value; state = S.NAME;
 						case RIGHT_BRACE: return object;
@@ -70,44 +69,45 @@ class Parser {
 				case S.NAME:
 					switch (stream.peek()) {
 						case COLON: stream.skip(); state = S.COLON;
-						default: unexpected(stream);		
+						default: unexpected(stream);
 					}
 				case S.COLON:
+					var property:IProperty = record.getProperty(field);
 					switch (stream.peek()) {
 						case NULL:
 							stream.skip();
-							if (object.isWriteProperty(field)) {
+							if (property.isWritable()) {
 								object.setField(field, null);
 							}
 						case TRUE:
 							stream.skip();
-							if (object.isWriteProperty(field)) {
+							if (property.isWritable()) {
 								object.setField(field, true);
 							}
 						case FALSE:
 							stream.skip();
-							if (object.isWriteProperty(field)) {
+							if (property.isWritable()) {
 								object.setField(field, false);
 							}
 						case STRING(value):							
 							stream.skip();
-							if (object.isWriteProperty(field)) {
+							if (property.isWritable()) {
 								object.setField(field, value);
 							}
 						case NUMBER(value):							
 							stream.skip();
-							if (object.isWriteProperty(field)) {
+							if (property.isWritable()) {
 								object.setField(field, value);
 							}
 						case LEFT_BRACE:
 							stream.skip();
-							if (object.isWriteProperty(field)) {
-								object.setField(field, parseObject(stream, object.propertyType(field)));
+							if (property.isWritable()) {
+								object.setField(field, parseObject(stream, property.getType().getRecord()));
 							}
 						case LEFT_BRACKET:
 							stream.skip();
-							if (object.isWriteProperty(field)) {
-								object.setField(field, parseArray(stream, object.propertyElementType(field)));
+							if (property.isWritable()) {
+								object.setField(field, parseArray(stream, property.getElementType().getRecord()));
 							}
 						default: unexpected(stream);
 					}
@@ -132,7 +132,7 @@ class Parser {
 		internalError();
 	}
 	
-	private function parseArray(stream:IStream<Token>, elementType:Class<Dynamic>):Array<Dynamic> {
+	private function parseArray(stream:IStream<Token>, elementRecord:Record<Dynamic>):Array<Dynamic> {
 		var state:Int = S.START;
 		var array:Array<Dynamic> = null;
 		while (true) {
@@ -157,10 +157,10 @@ class Parser {
 							array.push(value);
 						case LEFT_BRACE:
 							stream.skip();
-							array.push(parseObject(stream, elementType));
+							array.push(parseObject(stream, elementRecord));
 						case LEFT_BRACKET:
 							stream.skip();
-							array.push(parseArray(stream, ParserTools.Object));
+							array.push(parseArray(stream, Record.objectType.getRecord()));
 						case RIGHT_BRACKET: return array;
 						default: unexpected(stream);
 					}
@@ -190,10 +190,10 @@ class Parser {
 							array.push(value);
 						case LEFT_BRACE:
 							stream.skip();
-							array.push(parseObject(stream, elementType));
+							array.push(parseObject(stream, elementRecord));
 						case LEFT_BRACKET:
 							stream.skip();
-							array.push(parseArray(stream, ParserTools.Object));
+							array.push(parseArray(stream, Record.objectType.getRecord()));
 						default: unexpected(stream);
 					}
 					state = S.VALUE;
