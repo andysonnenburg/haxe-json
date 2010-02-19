@@ -17,18 +17,14 @@ class DescribeTypeCache<T> {
 		recordCache = new TypedDictionary<String, T>();
 	}
 
-	public function describeType(value:Dynamic):T {
-		var className:String = DescribeTypeTools.getQualifiedClassName(value);
+	public function describeType(type:Class<Dynamic>):T {
+		var className:String = DescribeTypeTools.getQualifiedClassName(type);
 		var record:T;
 		if ((record = recordCache.get(className)) != null) {
 			return record;
 		}
-		var typeDescription:XML = DescribeTypeTools.describeType(value);
-		if (Std.is(value, Class)) {
-			record = factory(cast(value, Class<Dynamic>), typeDescription.elements("factory")[0]);
-		} else {
-			record = factory(value.getClass(), typeDescription);
-		}
+		var typeDescription:XML = DescribeTypeTools.describeType(type);
+		record = factory(type, typeDescription);
 		recordCache.set(className, record);
 		return record;
 	}		

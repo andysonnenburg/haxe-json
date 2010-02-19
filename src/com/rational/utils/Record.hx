@@ -31,8 +31,9 @@ class Record<T> {
 	private function new(type:Class<T>, typeDescription:XML) {
 		this.type = type;
 		this.typeDescription = typeDescription;
-		variables = typeDescription.elements("variable");
-		accessors = typeDescription.elements("accessor");
+		var factory:XML = typeDescription.elements("factory")[0];
+		variables = factory.elements("variable");
+		accessors = factory.elements("accessor");
 		properties = new Properties();
 	}
 	

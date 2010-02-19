@@ -57,7 +57,7 @@ class Parser {
 		var object:T = null;
 		var field:String = null;
 		var value:Dynamic = null;
-		while (true) {
+		do {
 			switch (state) {
 				case S.START:
 					object = record.createInstance();
@@ -128,7 +128,7 @@ class Parser {
 					}
 				default: internalError();
 			}
-		}
+		} while (true);
 		internalError();
 	}
 	
